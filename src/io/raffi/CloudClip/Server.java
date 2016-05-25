@@ -81,11 +81,11 @@ public class Server {
 
 	public static void main ( String args [] ) throws Exception {
 		if ( args [0].equals ("server") ) {
-			Server server = new Server ( 10007 );
+			Server server = new Server ( Integer.parseInt ( args [ 0 ] ) );
 		}
 		else {
-			Server server = new Server ( 10006 );
-			server.connect ( "localhost", 10007 );
+			Server server = new Server ( Integer.parseInt ( args [ 1 ] ) );
+			server.connect ( args [ 0 ], Integer.parseInt ( args [ 1 ] ) );
 			Server.sendAll ( "Hello from client" );
 		}
 		

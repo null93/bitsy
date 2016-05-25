@@ -3,10 +3,10 @@ all:
 	javac EchoServer.java EchoClient.java
 
 server:
-	java Server server
+	java Server 10007
 
 client:
-	java Server client
+	java Server 192.168.0.10 10007
 
 test_server:
 	java EchoServer
