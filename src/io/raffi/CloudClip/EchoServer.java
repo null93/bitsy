@@ -1,55 +1,62 @@
 import java.net.*; 
 import java.io.*; 
 
-public class EchoServer 
-{ 
- public static void main(String[] args) throws IOException 
-   { 
-    ServerSocket serverSocket = null; 
+public class EchoServer {
 
-    try { 
-         serverSocket = new ServerSocket(10007); 
-        } 
-    catch (IOException e) 
-        { 
-         System.err.println("Could not listen on port: 10007."); 
-         System.exit(1); 
-        } 
+	public static ServerSocket server = null;
 
-    Socket clientSocket = null; 
-    System.out.println ("Waiting for connection.....");
+	public EchoServer ( int port ) throws Exception {
+		
+		PrintWriter out = null;
+		BufferedReader in = null;
+		Socket client = null;
+		String input = null;
 
-    try { 
-         clientSocket = serverSocket.accept(); 
-        } 
-    catch (IOException e) 
-        { 
-         System.err.println("Accept failed."); 
-         System.exit(1); 
-        } 
+		try {
+			EchoServer.server = new ServerSocket ( port ); 
+			Thread listen = new Thread ( new Runnable () {
+				public void run () {
+					// Loop forever while listening for client connections
+					while ( true ) {
+						try {
+							String input = "";
+							Socket client = EchoServer.server.accept ();
+							PrintWriter out = new PrintWriter ( client.getOutputStream (), true ); 
+							BufferedReader in = new BufferedReader ( new InputStreamReader ( client.getInputStream () ) ); 
+							while ( ( input = in.readLine () ) != null ) { 
+								System.out.println ( "Server: " + input ); 
+								out.println ( input ); 
+								if ( input.equals ( "Bye." ) ) { 
+									break; 
+								}
+							}
+						}
+						catch ( Exception exception ) {}
+						finally {
+							try {
+								out.close (); 
+								in.close ();
+								client.close (); 
+							}
+							catch ( Exception exception ) {}
+						}
+					}
+			    }
+			});
+			listen.start ();
+		} 
+		catch ( Exception exception ) { 
+			System.err.println ( "Fail..." ); 
+			System.exit ( 1 ); 
+		}
+		finally {
+			EchoServer.server.close (); 
+		}
+	}
 
-    System.out.println ("Connection successful");
-    System.out.println ("Waiting for input.....");
+	public static void main ( String [] args ) throws Exception { 
 
-    PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), 
-                                      true); 
-    BufferedReader in = new BufferedReader( 
-            new InputStreamReader( clientSocket.getInputStream())); 
-    out.println ( "hello this is server" );
-    String inputLine; 
+		EchoServer server = new EchoServer ( 10007 );		
 
-    while ((inputLine = in.readLine()) != null) 
-        { 
-         System.out.println ("Server: " + inputLine); 
-         out.println(inputLine); 
-
-         if (inputLine.equals("Bye.")) 
-             break; 
-        } 
-
-    out.close(); 
-    in.close(); 
-    clientSocket.close(); 
-    serverSocket.close(); 
-   } 
+	} 
 } 

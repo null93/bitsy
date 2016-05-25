@@ -4,12 +4,12 @@ import java.net.*;
 public class EchoClient {
     public static void main(String[] args) throws IOException {
 
-        String serverHostname = new String ("127.0.0.1");
+        String serverHostname = new String ("localhost");
 
         if (args.length > 0)
            serverHostname = args[0];
         System.out.println ("Attemping to connect to host " +
-		serverHostname + " on port 10007.");
+        serverHostname + " on port 10007.");
 
         Socket echoSocket = null;
         PrintWriter out = null;
@@ -30,23 +30,20 @@ public class EchoClient {
             System.exit(1);
         }
 
-	BufferedReader stdIn = new BufferedReader(
+    BufferedReader stdIn = new BufferedReader(
                                    new InputStreamReader(System.in));
-	String userInput;
-    String inputLine; 
-
-    while ((inputLine = in.readLine()) != null) 
-        { 
-         System.out.println ("Server: " + inputLine); 
-         out.println(inputLine); 
-        } 
+    String userInput;
 
         System.out.print ("input: ");
-	out.println("iudshfudhfuisdhf");
+    while ((userInput = stdIn.readLine()) != null) {
+        out.println(userInput);
+        System.out.println("echo: " + in.readLine());
+            System.out.print ("input: ");
+    }
 
-	out.close();
-	in.close();
-	stdIn.close();
-	echoSocket.close();
+    out.close();
+    in.close();
+    stdIn.close();
+    echoSocket.close();
     }
 }

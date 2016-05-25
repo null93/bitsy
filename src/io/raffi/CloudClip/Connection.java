@@ -4,6 +4,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import javax.net.ServerSocketFactory;
+import javax.net.ssl.SSLServerSocketFactory;
 
 public class Connection implements Runnable {
 
@@ -29,20 +31,13 @@ public class Connection implements Runnable {
 			// Initialize the incoming and outgoing data stream
 			this.outgoing = new PrintWriter ( this.socket.getOutputStream (), true );
 			this.incoming = new BufferedReader ( new InputStreamReader ( this.socket.getInputStream () ) );
+			outgoing.flush ();
 		}
 		// Attempt to catch any exceptions
 		catch ( Exception exception ) {
 			// Throw our own exception
 			throw new Exception ( "Connection with client was interrupted!" );
 		}
-		// Finally in any case, close all buffers and sockets
-		finally {
-			// Finally close all the connections
-			this.outgoing.close ();
-			this.incoming.close ();
-			this.socket.close ();
-		}
-		System.out.println ( "Finally" );
 	}
 
 	public void send ( String data ) {
@@ -52,14 +47,20 @@ public class Connection implements Runnable {
 
 	public void close () {
 		this.state = State.CLOSED;
+		try {
+			this.outgoing.close ();
+			this.incoming.close ();
+			this.socket.close ();
+		}
+		catch ( Exception exception ) {}
 	}
 
 	public void run () {
 		while ( this.state == State.OPEN ) {
 			try {
-				System.out.println ( "Server: " + this.incoming.readLine () );
 				while ( ( this.message = this.incoming.readLine () ) != null ) {
 					System.out.println ( "The response from server is: " + this.message );
+					Server.sendAllBut ( this, this.message );
 				}
 			}
 			catch ( Exception exception ) {}
