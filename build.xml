@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CloudClip" default="default" basedir="."> 
+
+	<taskdef name="bundleapp" classname="com.oracle.appbundler.AppBundlerTask" classpath="lib/appbundler-1.0.jar" />
+
+	<path id="classpath">
+		<fileset dir="lib">
+			<include name="json-simple.jar" />
+		</fileset>
+		<pathelement location="build/classes" />
+	</path>
+
+	<target name="clean">
+		<delete dir="build"/>
+		<delete dir="dist"/>
+		<delete>
+    		<fileset dir="src" includes="**/*.class"/>
+    		<fileset dir="." includes="**/*.DS_Store "/>
+		</delete>
+	</target>
+
+	<target name="build">
+		<mkdir dir="build/classes"/>
+		<javac srcdir="src" destdir="build/classes" includeantruntime="false" >   
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="run">
+		<java jar="build/jar/CloudClip.jar" fork="true">
+			<classpath refid="classpath" />
+		</java>
+	</target>
+
+	<target name="jar">
+		<mkdir dir="build/jar"/>
+	    <copy todir="src/io/raffi/CloudClip">
+	        <fileset dir="design">
+	            <include name="**/*.png"/>
+	        </fileset>
+	    </copy>
+		<jar destfile="build/jar/CloudClip.jar" basedir="build/classes" >
+			<manifest>
+				<attribute name="Main-Class" value="CloudClip"/>
+			</manifest>
+			<zipgroupfileset dir="lib" includes="*.jar"/>
+			<fileset dir="src">
+            	<include name="**/*.png" />
+        	</fileset>
+		</jar>
+		<delete>
+    		<fileset dir="src" includes="**/*.png"/>
+		</delete>
+	</target>
+
+	<target name="app">
+		<mkdir dir="dist"/>
+		<bundleapp outputdirectory="dist" name="CloudClip" displayname="CloudClip" identifier="CloudClip" icon="design/Icon.icns" mainclassname="CloudClip" >
+			<classpath file="dist/CloudClip.jar" />
+		</bundleapp>
+	</target>
+
+
+
+
+</project>
