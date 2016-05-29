@@ -1,0 +1,1194 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"address",
+				"addresses"
+			],
+			[
+				"addes",
+				"address"
+			],
+			[
+				"addre",
+				"addresses"
+			],
+			[
+				"Exec",
+				"ExecuteNonQuery"
+			],
+			[
+				"Addre",
+				"Addresses"
+			],
+			[
+				"add",
+				"address"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"array_key",
+				"array_key_exists"
+			],
+			[
+				"E",
+				"ExecuteScalar"
+			],
+			[
+				"Men",
+				"MenuShortcut"
+			],
+			[
+				"ou",
+				"outgoingPort"
+			],
+			[
+				"out",
+				"outgoingAddress"
+			],
+			[
+				"clie",
+				"client"
+			],
+			[
+				"Ser",
+				"Server"
+			],
+			[
+				"SERVER",
+				"ServerSocketFactory"
+			],
+			[
+				"server",
+				"serverSocketFactory"
+			],
+			[
+				"send",
+				"sendAll"
+			],
+			[
+				"Server",
+				"ServerSocket"
+			],
+			[
+				"Ehc",
+				"EchoClient"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"result",
+				"resultPassword"
+			],
+			[
+				"resul",
+				"resultPassword"
+			],
+			[
+				"err",
+				"error_log"
+			],
+			[
+				"P",
+				"_POST"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"cli",
+				"client"
+			],
+			[
+				"Serv",
+				"ServerSocket"
+			],
+			[
+				"pri",
+				"private"
+			],
+			[
+				"his",
+				"History"
+			],
+			[
+				"shor",
+				"shortcut"
+			],
+			[
+				"get",
+				"getValue"
+			],
+			[
+				"CLI",
+				"ClipboardManager"
+			],
+			[
+				"Cl",
+				"Clipboard"
+			],
+			[
+				"clip",
+				"clipboard"
+			],
+			[
+				"cl",
+				"clipboard"
+			],
+			[
+				"men",
+				"menuItem"
+			],
+			[
+				"A",
+				"ArrayList"
+			],
+			[
+				"JSON",
+				"JSONObject"
+			],
+			[
+				"Clip",
+				"ClipboardManager"
+			],
+			[
+				"excep",
+				"exception"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"Action",
+				"ActionEvent"
+			],
+			[
+				"Menu",
+				"MenuItem"
+			],
+			[
+				"Tra",
+				"TrayIcon"
+			],
+			[
+				"Sys",
+				"SystemTray"
+			],
+			[
+				"JMen",
+				"JMenu"
+			],
+			[
+				"base",
+				"base64_encode"
+			],
+			[
+				"ero",
+				"error_log"
+			],
+			[
+				"Add",
+				"Address"
+			],
+			[
+				"error",
+				"error_log"
+			],
+			[
+				"stat",
+				"status"
+			],
+			[
+				"fet",
+				"fetchLicenseRaw"
+			],
+			[
+				"cPan",
+				"cPanel"
+			],
+			[
+				"cPanel",
+				"cPanelLicensing"
+			],
+			[
+				"Auth",
+				"authorization"
+			],
+			[
+				"custom",
+				"custom"
+			],
+			[
+				"cp",
+				"cpanel_body"
+			],
+			[
+				"st",
+				"stylesheet"
+			],
+			[
+				"virtu",
+				"virtuozzo_ClientArea"
+			],
+			[
+				"pro",
+				"product"
+			],
+			[
+				"Exe",
+				"ExecuteScalar"
+			],
+			[
+				"EX",
+				"ExecuteScalar"
+			],
+			[
+				"ass",
+				"assigned"
+			],
+			[
+				"ded",
+				"dedicated"
+			],
+			[
+				"Addres",
+				"Addresses"
+			],
+			[
+				"array_fil",
+				"array_filter"
+			],
+			[
+				"cus",
+				"custom"
+			],
+			[
+				"In",
+				"Information"
+			],
+			[
+				"push",
+				"array_push"
+			],
+			[
+				"Up",
+				"Update"
+			],
+			[
+				"Su",
+				"Success"
+			],
+			[
+				"Log",
+				"Login"
+			],
+			[
+				"Des",
+				"Destroy"
+			],
+			[
+				"pac",
+				"packet"
+			],
+			[
+				"pack",
+				"packet"
+			],
+			[
+				"packet",
+				"packets"
+			],
+			[
+				"Lo",
+				"Logger"
+			],
+			[
+				"lo",
+				"logger"
+			],
+			[
+				"chec",
+				"checkParameters"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"ini",
+				"initialize"
+			],
+			[
+				"sock",
+				"socket"
+			],
+			[
+				"socket_set",
+				"socket_set_blocking"
+			],
+			[
+				"Time",
+				"timestamp"
+			],
+			[
+				"Exce",
+				"ExecuteNonScalar"
+			],
+			[
+				"csv",
+				"csv_file"
+			],
+			[
+				"wor",
+				"word"
+			],
+			[
+				"stop",
+				"stopwords"
+			],
+			[
+				"wo",
+				"words"
+			],
+			[
+				"USER",
+				"AT_USER"
+			],
+			[
+				"word",
+				"words"
+			],
+			[
+				"la",
+				"lambda"
+			],
+			[
+				"pivo",
+				"pivotx"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"first",
+				"firstNames"
+			],
+			[
+				"Aut",
+				"author"
+			],
+			[
+				"Disp",
+				"Display"
+			],
+			[
+				"rota",
+				"rotateLeft"
+			],
+			[
+				"JMenu",
+				"JMenuItem"
+			],
+			[
+				"control",
+				"controlPanel"
+			],
+			[
+				"updat",
+				"updateLevel"
+			],
+			[
+				"update",
+				"updateLines"
+			],
+			[
+				"rot",
+				"rotateRight"
+			],
+			[
+				"displ",
+				"displayPanel"
+			],
+			[
+				"pa",
+				"pause"
+			],
+			[
+				"sof",
+				"softDrop"
+			],
+			[
+				"move",
+				"moveLeft"
+			],
+			[
+				"next",
+				"nextPiece"
+			],
+			[
+				"nex",
+				"nextPiece"
+			],
+			[
+				"setB",
+				"setBackground"
+			],
+			[
+				"Displ",
+				"DisplayPanel"
+			],
+			[
+				"number",
+				"bufferNumber"
+			],
+			[
+				"running",
+				"running_procs"
+			],
+			[
+				"procfs_",
+				"procfs_i_func"
+			],
+			[
+				"populate",
+				"populate_meminfo"
+			],
+			[
+				"procfs",
+				"procfs_i_func"
+			],
+			[
+				"sy",
+				"symbol"
+			],
+			[
+				"en",
+				"encrypt"
+			],
+			[
+				"file",
+				"filepath"
+			],
+			[
+				"KeyPair",
+				"keyPair"
+			],
+			[
+				"save",
+				"savePrivateKey"
+			],
+			[
+				"gen",
+				"generateKeys"
+			],
+			[
+				"decry",
+				"decrypted"
+			],
+			[
+				"encry",
+				"encryption"
+			],
+			[
+				"enc",
+				"encryped"
+			],
+			[
+				"encr",
+				"encryption"
+			],
+			[
+				"return",
+				"return	@return"
+			],
+			[
+				"laod",
+				"loadHTML"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 277.0,
+		"last_filter": "json",
+		"selected_items":
+		[
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"inden",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"lo",
+				"Convert Case: Lower Case"
+			],
+			[
+				"inedn",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"trim",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"indein",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"JSON",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"linter",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"idnen",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"lowe",
+				"Convert Case: Lower Case"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"inde",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ind",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"in",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"Themr: List themes"
+			],
+			[
+				"ine",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"in ",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"tr",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"INDEN",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"mini",
+				"Pretty JSON: Minify (compress) JSON"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"tri",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"jsonn",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"LOWE",
+				"Convert Case: Lower Case"
+			],
+			[
+				"lower	",
+				"Convert Case: Lower Case"
+			],
+			[
+				"trime",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"idne",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"trimm",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ass",
+				"ASCII Decorator: Font Selector"
+			],
+			[
+				"trimmer",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"trimer",
+				"Trimmer: Remove blank spaces."
+			],
+			[
+				"package",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"as",
+				"ASCII Decorator: Font Selector"
+			],
+			[
+				"sub",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"f#",
+				"Set Syntax: F#"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ali",
+				"Preferences: Alignment Key Bindings – User"
+			],
+			[
+				"scope",
+				"Scope Hunter: Show Scope Under Cursor(s)"
+			],
+			[
+				"gutt",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"gutter",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"themr",
+				"Themr: List themes"
+			],
+			[
+				"inen",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"doc",
+				"DocBlockr: Decorate line comment"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"th",
+				"Themr: List themes"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 172.0,
+		"history":
+		[
+			"import sys",
+			"ll",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip"
+	],
+	"file_history":
+	[
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/.sublime-project",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/Pretty JSON.sublime-settings",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/CloudClip.sublime-project",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-axkhvr/Information.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-mdovyt/Addresses.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-n1zl9n/Action.php",
+		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/process.php",
+		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/global.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-w15wfs/create.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-rmb4mq/Action.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-xquywo/Information.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-10f2k0/Addresses.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-ypw2hg/Action.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-n4wj34/Authorization.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-eu91d2/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-l0xspn/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-pvanys/virtuozzo.php",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/History.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/CloudClip.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Preferences.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/build.xml",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/MenuTray.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Packet.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Connection.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Server.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Makefile",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/packets.json",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/ClipboardManager.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/EchoClient.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/EchoServer.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/EchoClient.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/EchoServer.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/Connection.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/Server.java",
+		"/Users/Raffi/Desktop/peerbase/PeerInfo.java",
+		"/Users/Raffi/Desktop/peerbase/PeerMessage.java",
+		"/Users/Raffi/Desktop/peerbase/RouterInterface.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/Makefile",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/ClipboardManager.java",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-842jl8/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-pklh3q/Action.php",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/Test.java",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-cf_qcm/Action.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-bruxr3/Action.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-enzcav/Addresses.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-h_jypt/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-tr5u0i/virtuozzo.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-p3676y/Information.php",
+		"/Users/Raffi/Desktop/Clipboard/src/CloudClip.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/MenuTray.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/Preferences.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/History.java",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/CloudClipException.java",
+		"/Users/Raffi/Desktop/Clipboard/build.xml",
+		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/Main.java",
+		"/Users/Raffi/Desktop/Clipboard/src/History.java",
+		"/Users/Raffi/Desktop/Clipboard/src/CloudClipException.java",
+		"/Users/Raffi/Desktop/Clipboard/src/ClipboardManager.java",
+		"/Users/Raffi/Desktop/Clipboard/src/MenuTray.java",
+		"/Users/Raffi/Desktop/Clipboard/src/Preferences.java",
+		"/Users/Raffi/Desktop/Clipboard/dist/CloudClip.app/Contents/Info.plist",
+		"/Users/Raffi/Desktop/Clipboard/dist/CloudClip.app/Contents/MacOS/JavaAppLauncher",
+		"/Users/Raffi/Desktop/Clipboard/lib/jarbundler-2.3.1/example/build.xml",
+		"/Users/Raffi/Desktop/Clipboard/src/assets/data/clips.json",
+		"/Users/Raffi/Desktop/Clipboard/src/build.xml",
+		"/Users/Raffi/Desktop/Clipboard/src/Makefile",
+		"/Users/Raffi/Desktop/Clipboard/design/Icon.svg",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/Java.sublime-settings",
+		"/Users/Raffi/Google Drive/My Documents/Github/Ninja-Chat-Application/source/Client/Connection.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/Ninja-Chat-Application/source/Makefile",
+		"/Users/Raffi/Google Drive/My Documents/Github/RSA-Encryption/RSAException.java",
+		"/Users/Raffi/Desktop/Clipboard/CloudClip.java",
+		"/Users/Raffi/Desktop/Clipboard/Clipboard.java",
+		"/Users/Raffi/Desktop/Clipboard/Makefile",
+		"/Users/Raffi/Desktop/Clipboard/Tester.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/status.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-3r7xs8/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-01sxoj/Template.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-dv543d/Action.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-ujvrz_/Information.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-4mrnzg/virtuozzo.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-gntv54/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-2u_uvh/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-n7iq0q/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-qq4l90/Database.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-kln0p8/Authorization.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-wp5mjw/admin-commands.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-zkh9ps/javascript.tpl",
+		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/vz.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-azp14a/javascript.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-b7p0ox/admin-commands.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-y_zhrd/Authorization.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-mph5lm/Information.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-ahkdgh/api.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-bn995_/Database.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-b50d7i/api.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-84jduz/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-6zwatf/admin-status.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-s2vsad/admin-status.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-fwl1vu/javascript.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-i6v3y8/admin-commands.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-yzroho/javascript.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-0rxtbf/stylesheet.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-vffp53/WHMCS.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-i805wl/javascript.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-78pdvy/client-area.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-vd503i/admin-status.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-7g23ux/Template.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-lc3997/stylesheet.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-r82tsw/admin-commands.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-muefj2/Packet.php",
+		"/Users/Raffi/Desktop/TTFB/script.py",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-wlo2xf/admin-status.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-g28meu/Process.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-nvzqe1/virtuozzo.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-7l3m2l/virtuozzo.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-_yv02m/Information.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-bpktqq/admin-commands.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-9yto8g/Template.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-mglw2y/admin-errors.tpl",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-n7tcfw/admin-status.tpl",
+		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/style.css",
+		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/functions.js",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-wrv6ls/Packet.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-kkooti/Template.php",
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-ac882e/client-area.tpl"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 154.0,
+		"where_history":
+		[
+			"",
+			"/Users/Raffi/Desktop/bgansu3",
+			"/Users/Raffi/Google Drive/My Documents/Github/RSA-Encryption",
+			"/Users/Raffi/Google Drive/School/UIC/CS491/HW02",
+			"/Users/Raffi/Desktop/bgansu3",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"gen",
+			"password",
+			"$callback ( $result );",
+			"print_r",
+			"eid",
+			"echo",
+			"Timeout",
+			"examine",
+			"error_lo",
+			"error_log",
+			"echo",
+			"$json",
+			"SSL",
+			".server",
+			"server",
+			"inputLine",
+			"clientSocket",
+			"serverSocket",
+			"stdIn",
+			"keyboard Shortcut",
+			"getPro",
+			" base ",
+			"base ",
+			"base",
+			"getPro",
+			"base",
+			"ADD",
+			"testIP",
+			"CTID",
+			"dedicated",
+			"true",
+			"WHMCS",
+			" 		",
+			"message",
+			"str",
+			"this.sock",
+			"Connection",
+			"cTosPortNumber",
+			"Iterator",
+			"Entry",
+			"Map",
+			"KeyStroke",
+			"this.icon",
+			"trayIcon",
+			"this.tray.",
+			"Entry",
+			"Map",
+			"this.clip",
+			"Main",
+			"SandboxEnabled",
+			"JVMVersion",
+			"dir",
+			"classpath",
+			"icon",
+			"components",
+			"filepath",
+			"bundleapp",
+			"ButtonDemo",
+			"Button Demo",
+			"HashMap",
+			"System.out",
+			"trayIcon",
+			");",
+			"getEID",
+			"$eid",
+			"$eid [",
+			"$eid",
+			"$eid [",
+			"html",
+			"passwor",
+			"status",
+			"$status",
+			"status (",
+			"status",
+			"$ca",
+			"name='hostingid'",
+			"name='userid'",
+			"name='hostingid'",
+			"name='userid'",
+			"\". $DATA['configoptions']['Control Panel'] .\"",
+			"\".$HOSTINGID.\"",
+			"\".$USERID.\"",
+			"\".constant(\"PATH_PHP_PROCESS\").\"",
+			" Cannot redeclare class cPanelLicensing",
+			"cPanelLicensing",
+			"Information::getInstance",
+			"ACTION",
+			"$ORIGINALHOSTNAME",
+			"$TBLCLIENTS",
+			"$SERVERID",
+			"$ORIGINALHOSTNAME",
+			"success",
+			"logger",
+			"_log",
+			"log",
+			"APIcall",
+			"APICall",
+			"APIcall",
+			"$PAIR",
+			"$VALUE",
+			"$KEY",
+			"$RETURN",
+			"$DATA",
+			"setopt($c",
+			"$CH",
+			"$POSTFIELDS",
+			"Logger::Inter",
+			"synchron",
+			"e12769c2-1f41-c842-abad-437461e90ea8",
+			"ns1:data",
+			"ok>",
+			"wrong password",
+			"Process::Fail",
+			"Process:Fail",
+			"Process::Failed",
+			"header (",
+			"( object )",
+			"origin:",
+			"veid",
+			"state",
+			"error",
+			"echo",
+			"create",
+			"timeout",
+			"state",
+			"ns3:",
+			"message",
+			"ok/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 53.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 327.0
+	},
+	"output.figlet_preview":
+	{
+		"height": 263.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.scope_viewer":
+	{
+		"height": 110.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 110.0
+	},
+	"pinned_build_system": "",
+	"project": "CC.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"UIC/CS473/Projects/PROJ01/Tests/test05.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 233.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

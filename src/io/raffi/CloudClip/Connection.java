@@ -1,11 +1,11 @@
+package io.raffi.CloudClip;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import javax.net.ServerSocketFactory;
-import javax.net.ssl.SSLServerSocketFactory;
 
 public class Connection implements Runnable {
 
@@ -26,7 +26,7 @@ public class Connection implements Runnable {
 	public Connection ( Socket socket ) throws Exception {
 		// Save the socket connection
 		this.socket = socket;
-		System.out.println ( socket.getRemoteSocketAddress().toString() );
+		System.out.println ( socket.getRemoteSocketAddress ().toString () );
 		try {
 			// Initialize the incoming and outgoing data stream
 			this.outgoing = new PrintWriter ( this.socket.getOutputStream (), true );

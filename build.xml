@@ -21,7 +21,9 @@
 
 	<target name="build">
 		<mkdir dir="build/classes"/>
-		<javac srcdir="src" destdir="build/classes" includeantruntime="false" >   
+		<javac srcdir="src" destdir="build/classes" includeantruntime="false" >  
+			<compilerarg value="-Xlint:unchecked"/> 
+			<compilerarg value="-Xdiags:verbose"/> 
 			<classpath refid="classpath" />
 		</javac>
 	</target>

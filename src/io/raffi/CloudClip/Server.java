@@ -1,3 +1,5 @@
+package io.raffi.CloudClip;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -24,7 +26,8 @@ public class Server {
 		Server.serverSocketFactory = SSLServerSocketFactory.getDefault ();
 		Server.socketFactory = SSLSocketFactory.getDefault ();
 		// Initialize the socket and clients array list
-		Server.server = Server.serverSocketFactory.createServerSocket ( incomingPort );
+		Server.server = new ServerSocket ( incomingPort );
+		//Server.server = Server.serverSocketFactory.createServerSocket ( incomingPort );
 		Server.peers = new ArrayList <Connection> ();
 		// Spawn a new thread to listen for connections and start the thread
 		Thread listen = new Thread ( new Runnable () {
@@ -51,11 +54,15 @@ public class Server {
 	public synchronized void connect ( String outgoingAddress, int outgoingPort ) {
 		try {
 			// Create a new socket
-			Socket client = Server.socketFactory.createSocket ( outgoingAddress, outgoingPort );
+			//Socket client = Server.socketFactory.createSocket ( outgoingAddress, outgoingPort );
+			Socket client = new Socket ( outgoingAddress, outgoingPort );
 			// Pass it to the Connection class and append to the peers array
 			Connection connection = new Connection ( client );
-			Server.peers.add ( connection );
 			new Thread ( connection ).start ();
+			Server.peers.add ( connection );
+			// Send a connection request to the server
+			Packet packet = Packet.getInstance ();
+			connection.send ( packet.clientHandshake () );
 		}
 		catch ( Exception exception ) {}
 	}
@@ -80,15 +87,19 @@ public class Server {
 
 
 	public static void main ( String args [] ) throws Exception {
-		if ( args [0].equals ("server") ) {
-			Server server = new Server ( Integer.parseInt ( args [ 0 ] ) );
+		if ( args [ 0 ].equals ("server") ) {
+			Server server = new Server ( 10007 );
 		}
 		else {
-			Server server = new Server ( Integer.parseInt ( args [ 1 ] ) );
-			server.connect ( args [ 0 ], Integer.parseInt ( args [ 1 ] ) );
-			Server.sendAll ( "Hello from client" );
+			try {
+				Server server = new Server ( Integer.parseInt ( args [ 2 ] ) );
+				server.connect ( args [ 1 ], Integer.parseInt ( args [ 2 ] ) );
+				Server.sendAll ( "Hello from client" );
+			}
+			catch ( Exception e ) {
+				System.out.println ( "Fail from main" );
+			}
 		}
-		
 	}
 
 }

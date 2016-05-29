@@ -172,14 +172,16 @@ public class MenuTray implements ActionListener {
 		}
 		// Create all the menu icons to the options hash map
 		MenuItem quit = new MenuItem ( "Quit", new MenuShortcut ( KeyEvent.VK_Q ) );
-		MenuItem about = new MenuItem ( "About", new MenuShortcut ( KeyEvent.VK_A ) );
+		MenuItem about = new MenuItem ( "About" );
 		MenuItem preferences = new MenuItem ( "Preferences", new MenuShortcut ( KeyEvent.VK_P ) );
-		MenuItem clear = new MenuItem ( "Clear", new MenuShortcut ( KeyEvent.VK_C ) );
+		MenuItem connect = new MenuItem ( "Connect", new MenuShortcut ( KeyEvent.VK_C ) );
+		MenuItem clear = new MenuItem ( "Clear" );
 		// Add the options to the popup menu
 		this.popup.addSeparator ( );
 		this.popup.add ( clear );
 		this.popup.addSeparator ( );
 		this.popup.add ( preferences );
+		this.popup.add ( connect );
 		this.popup.add ( about );
 		this.popup.addSeparator ( );
 		this.popup.add ( quit );
@@ -187,6 +189,7 @@ public class MenuTray implements ActionListener {
 		quit.addActionListener ( this );
 		about.addActionListener ( this );
 		preferences.addActionListener ( this );
+		connect.addActionListener ( this );
 		clear.addActionListener ( this );
 	}
 
@@ -214,8 +217,16 @@ public class MenuTray implements ActionListener {
 				break;
 			// Handle the clear action
 			case "Clear":
-				this.history.clear ();
-				this.update ( this.history.export () );
+				// Ask user if they are sure they want to clear
+				if ( UserInterface.confirmClear () ) {
+					// Clear the history and update the menu items
+					this.history.clear ();
+					this.update ( this.history.export () );
+				}
+				break;
+			// Handle the connect peer action
+			case "Connect":
+				UserInterface.peerConnectionInitialization ();
 				break;
 			// Handle the about action
 			case "About":
