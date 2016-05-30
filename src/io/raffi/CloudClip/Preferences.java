@@ -100,6 +100,27 @@ public class Preferences extends JFrame {
 		// Append that request object into the requests JSON array
 		( ( JSONArray ) this.contents.get ( "requests" ) ).add ( request );
 		// Save it back into the preferences file
+		this.save ();
+	}
+
+	public void addPeer ( String hash ) {
+		// Get the peers list and the requests list
+		JSONArray peers = ( JSONArray ) this.contents.get ( "peers" );
+		JSONArray requests = ( JSONArray ) this.contents.get ( "requests" );
+		// Initialize the counter variable
+		int i = 0;
+		// Loop through all the requests
+		for ( JSONObject request : ( JSONArray ) this.contents.get ( "requests" ) ) {
+			// If the current request matches the passed one
+			if ( request.get ( "hash" ).toString ().equals ( hash ) ) {
+				// Add the request to be a peer and remove from the requests list
+				peers.add ( request );
+				requests.remove ( i );
+				break;
+			}
+			// Increment the counter variable
+			i++;
+		}
 	}
 
 	private synchronized void save () {

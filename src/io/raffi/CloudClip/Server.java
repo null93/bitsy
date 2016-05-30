@@ -43,7 +43,6 @@ public class Server {
 						new Thread ( connection ).start ();
 						Server.peers.add ( connection );
 						System.out.println ( "Accepted connection!" );
-						Server.sendAll ( "Hello there!" );
 					}
 					catch ( Exception exception ) {}
 				}

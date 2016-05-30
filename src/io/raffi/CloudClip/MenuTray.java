@@ -35,6 +35,10 @@ public class MenuTray implements ActionListener {
 	 */
 	private History history;
 
+
+	private Preferences preferences;
+
+
 	/**
 	 * This internal data member holds the instance to the popup menu that we created for the system
 	 * tray.  It is used throughout the class.
@@ -56,8 +60,9 @@ public class MenuTray implements ActionListener {
 	 * @throws  CloudClipException
 	 */
 	public MenuTray () throws CloudClipException {
-		// Save the history object
+		// Save the history object and the preferences object
 		this.history = History.getInstance ();
+		this.preferences = Preferences.getInstance ();
 		// Get the icon resource path
 		String url = Preferences.IconPath;
 		// Set the icon
@@ -238,6 +243,11 @@ public class MenuTray implements ActionListener {
 						String hash = server.connect (
 							peer.first ().toString (),
 							( int ) peer.second ()
+						);
+						this.preferences.addRequest (
+							peer.first ().toString (),
+							( int ) peer.second (),
+							hash
 						);
 					}
 					// Catch any errors
