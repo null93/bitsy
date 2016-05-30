@@ -38,8 +38,9 @@ public class Preferences extends JFrame {
 
 		// Get the operating system
 		String os = System.getProperty ( "os.name" );
+		System.out.println ( os );
 		// Based on the operating system change the static definitions
-		if ( os.contains ( "windows" ) ) {
+		if ( os.contains ( "Windows" ) ) {
 			Preferences.IconPath = "Windows.Icon.png";
 		}
 
