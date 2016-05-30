@@ -22,6 +22,13 @@ import java.util.ArrayList;
  */
 public class ClipboardManager extends Thread {
 
+
+
+	private static ClipboardManager instance;
+
+
+
+
 	/**
 	 * This data member holds an instance of the History class, we will use it to set the values
 	 * when new strings are found in the clipboard and also to extract the currently available
@@ -47,6 +54,13 @@ public class ClipboardManager extends Thread {
 	 */
 	private String current;
 
+
+
+	private Packet packet;
+
+
+
+
 	/**
 	 * This constructor takes in the history object and the menu object and it saves it internally.
 	 * It also reads the current string in the system clipboard, as well as starts the thread so we
@@ -54,14 +68,30 @@ public class ClipboardManager extends Thread {
 	 * @param   History         history             Passed instance of the History class to save
 	 * @param   MenuTray        menu                Passed instance of the MenuTray class to save
 	 */
-	public ClipboardManager ( History history, MenuTray menu ) {
+	private ClipboardManager () {
+		// Get the history and menu instances
+		try {
+			ClipboardManager.history = History.getInstance ();
+			ClipboardManager.menu = MenuTray.getInstance ();
+		}
+		catch ( Exception exception ) {}
+		// Initialize all the instances
+		this.packet = Packet.getInstance ();
 		// Set the current string in the clipboard
 		this.current = ClipboardManager.read ();
 		// Save the history and menu instances internally
-		ClipboardManager.history = history;
-		ClipboardManager.menu = menu;
+
 		// Start the thread
 		this.start ();
+	}
+
+
+
+	public static ClipboardManager getInstance () {
+		if ( ClipboardManager.instance == null ) {
+			ClipboardManager.instance = new ClipboardManager ();
+		}
+		return ClipboardManager.instance;
 	}
 
 	/**
@@ -143,6 +173,8 @@ public class ClipboardManager extends Thread {
 				ArrayList <String> items = ClipboardManager.history.export ();
 				// Update it using the menu class
 				ClipboardManager.menu.update ( items );
+				// Sync across all devices
+				Server.sendAll ( this.packet.sendClip ( this.current ) );
 			}
 			// Attempt to put the thread to sleep
 			try {

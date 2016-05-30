@@ -57,4 +57,11 @@ public class Packet {
 		return json.toString ();
 	}
 
+	public String sendClip ( String clip ) {
+		JSONObject json = new JSONObject ();
+		json.put ( "type", "clip" );
+		json.put ( "data", clip );
+		return json.toString ();
+	}
+
 }

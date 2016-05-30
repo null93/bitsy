@@ -9,6 +9,10 @@ public class Handler {
 
 	private Preferences preferences;
 
+	private MenuTray menu;
+
+	private History history;
+
 	private Packet packet;
 
 	private Connection connection;
@@ -26,6 +30,8 @@ public class Handler {
 		try {
 			// Initialize classes that will be used beyond this scope within this class
 			this.preferences = Preferences.getInstance ();
+			this.menu = MenuTray.getInstance ();
+			this.history = History.getInstance ();
 			this.packet = Packet.getInstance ();
 		}
 		// Catch any exception that might be thrown
@@ -70,6 +76,17 @@ public class Handler {
 				String hash = request.get ( "hash" ).toString ();
 				// Add this user to the peers list
 				this.preferences.addPeer ( hash );
+				break;
+			// This handles when a clip is sent to us
+			case "clip":
+				// Extract the data string
+				String data = request.get ( "data" ).toString ();
+				// Check to see that it is not a repeat
+				if ( !ClipboardManager.read ().equals ( data ) && data != null ) {
+					// Write the data to the clipboard and update the menu
+					ClipboardManager.write ( data );
+					this.menu.update ( this.history.export () );
+				}
 				break;
 		}
 	}

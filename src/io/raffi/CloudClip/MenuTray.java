@@ -32,6 +32,8 @@ import org.json.simple.JSONArray;
 @SuppressWarnings ( "serial" )
 public class MenuTray implements ActionListener {
 
+	private static MenuTray instance;
+
 	/**
 	 * This internal data member contains an instance of the history class, to handle storing clips.
 	 * @var     History         history             Instance of the History class for storing clips.
@@ -62,7 +64,7 @@ public class MenuTray implements ActionListener {
 	 * command is not supported.
 	 * @throws  CloudClipException
 	 */
-	public MenuTray () throws Exception {
+	private MenuTray () throws Exception {
 		// Save the history object and the preferences object
 		this.history = History.getInstance ();
 		this.preferences = Preferences.getInstance ();
@@ -100,6 +102,13 @@ public class MenuTray implements ActionListener {
 			// Throw a custom exception
 			throw new CloudClipException ( "System Tray isn't supported" );
 		}
+	}
+
+	public static MenuTray getInstance () throws Exception {
+		if ( MenuTray.instance == null ) {
+			MenuTray.instance = new MenuTray ();
+		}
+		return MenuTray.instance;
 	}
 
 	/**

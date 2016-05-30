@@ -11,9 +11,8 @@ public class CloudClip {
         Preferences settings = Preferences.getInstance ();
         Server server = Server.getInstance ();
         History history = History.getInstance ();
-        MenuTray menu = new MenuTray ();
-		ClipboardManager clipboard = new ClipboardManager ( history, menu );
-		// UserInterface.peerConnectionAuthorization ( "192.168.0.12", 6969 );
+        MenuTray menu = MenuTray.getInstance ();
+		ClipboardManager clipboard = ClipboardManager.getInstance ();
 	}
 
 }
