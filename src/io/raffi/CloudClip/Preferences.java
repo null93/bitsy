@@ -119,11 +119,18 @@ public class Preferences extends JFrame {
 				// Add the request to be a peer and remove from the requests list
 				peers.add ( request );
 				requests.remove ( i );
+				this.contents.put ( "peers", peers );
+				this.contents.put ( "requests", requests );
+				this.save ();
 				break;
 			}
 			// Increment the counter variable
 			i++;
 		}
+	}
+
+	public JSONArray getPeers () {
+		return ( JSONArray ) this.contents.get ( "peers" );
 	}
 
 	private synchronized void save () {

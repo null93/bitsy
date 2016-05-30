@@ -1,5 +1,6 @@
 package io.raffi.CloudClip;
 
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 /**
  * MenuTray.java - This class initializes the tray icon in the system tray and it handles updating
@@ -183,13 +186,33 @@ public class MenuTray implements ActionListener {
 		MenuItem connect = new MenuItem ( "Connect", new MenuShortcut ( KeyEvent.VK_C ) );
 		MenuItem clear = new MenuItem ( "Clear" );
 		// Add the options to the popup menu
-		this.popup.addSeparator ( );
+		this.popup.addSeparator ();
+		// Get the number of peers from settings
+		JSONArray peers = this.preferences.getPeers ();
+		// If there is at lease one peer add this menu
+		if ( peers.size () > 0 ) {
+			// Initialize the disconnect menu
+			Menu disconnect = new Menu ( "Disconnect" );
+			// Loop through all the peers
+			for ( Object peerObject : peers ) {
+				// Add the item to the menu
+				JSONObject peer = ( JSONObject ) peerObject;
+				MenuItem peerItem = new MenuItem ( peer.get ( "address" ).toString () );
+				peerItem.addActionListener ( this );
+				disconnect.add ( peerItem );
+
+				// REFRESH MENU HERE
+
+			}
+			// Add the disconnect menu into the popup menu
+			this.popup.add ( disconnect );
+		}
 		this.popup.add ( clear );
-		this.popup.addSeparator ( );
+		this.popup.addSeparator ();
 		this.popup.add ( preferences );
 		this.popup.add ( connect );
 		this.popup.add ( about );
-		this.popup.addSeparator ( );
+		this.popup.addSeparator ();
 		this.popup.add ( quit );
 		// Add an action listener to the items
 		quit.addActionListener ( this );

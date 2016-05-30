@@ -28,8 +28,8 @@ public class Server {
 		Server.serverSocketFactory = SSLServerSocketFactory.getDefault ();
 		Server.socketFactory = SSLSocketFactory.getDefault ();
 		// Initialize the socket and clients array list
+		// Server.server = Server.serverSocketFactory.createServerSocket ( incomingPort );
 		Server.server = new ServerSocket ( incomingPort );
-		//Server.server = Server.serverSocketFactory.createServerSocket ( incomingPort );
 		Server.peers = new ArrayList <Connection> ();
 		// Spawn a new thread to listen for connections and start the thread
 		Thread listen = new Thread ( new Runnable () {
