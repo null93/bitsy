@@ -24,6 +24,13 @@ import java.util.Set;
 public class History {
 
 	/**
+	 * This data member holds the instance of the History class, since this class will be a
+	 * singleton.  It is singleton, because it only needs write access to the clips.json file once.
+	 * @var 	History 		instance 			The one instance of the History class
+	 */
+	private static History instance;
+
+	/**
 	 * This data member contains the clips array that is defined in the data json file defined by
 	 * the preferences class.
 	 * @var     JSONObject      data                The JSON data contents with all the saved clips
@@ -35,7 +42,7 @@ public class History {
 	 * makes it.  If it is it loads it into the internally defined JSONObject data member.
 	 * @throws  Exception
 	 */
-	public History () throws Exception {
+	private History () throws CloudClipException {
 		// Check to see if the data directory exists
 		File folder = new File ( Preferences.DataFolder );
 		if ( !folder.exists () ) {
@@ -46,28 +53,46 @@ public class History {
 		File history = new File ( Preferences.ClipsDataPath );
 		// Check to see if the file exists
 		if ( history.exists () && !history.isDirectory () ) {
-			// Get the file contents
-			String contents = new Scanner ( new File ( Preferences.ClipsDataPath ) )
-			.useDelimiter ("\\Z").next ();
-			// Initialize json parser
-			JSONParser parser = new JSONParser ();
-			// Try to parse the json string
+			// Attempt to load all contents of the clips file
 			try {
-				// Parse the JSON string, and save internally
-				this.data = ( JSONObject ) parser.parse ( contents );
+				// Get the file contents
+				String contents = new Scanner ( new File ( Preferences.ClipsDataPath ) )
+				.useDelimiter ("\\Z").next ();
+				// Initialize json parser
+				JSONParser parser = new JSONParser ();
+				// Try to parse the json string
+				try {
+					// Parse the JSON string, and save internally
+					this.data = ( JSONObject ) parser.parse ( contents );
+				}
+				// Attempt to catch any parse exceptions
+				catch ( Exception exception ) {
+					// Throw custom exception
+					throw new CloudClipException (
+						"Could not open the history file in: " + Preferences.ClipsDataPath
+					);
+				}
 			}
-			// Attempt to catch any parse exceptions
+			// Catch any errors while scanning
 			catch ( Exception exception ) {
-				// Throw custom exception
-				throw new CloudClipException (
-					"Could not open the history file in: " + Preferences.ClipsDataPath
-				);
+				// Throw our own exception
+				throw new CloudClipException ( "Cannot open file contents for the clips.json file" );
 			}
 		}
 		else {
 			// Initialize an empty JSON array
 			this.clear ();
 		}
+	}
+
+	public static History getInstance () throws CloudClipException {
+		// Check to see if the instance of this class is already initialized
+		if ( History.instance == null ) {
+			// The initialize an instance
+			History.instance = new History ();
+		}
+		// Return the History singleton instance
+		return History.instance;
 	}
 
 	/**

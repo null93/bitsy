@@ -1,5 +1,8 @@
 package io.raffi.CloudClip;
 
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
+import java.net.InetAddress;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -53,7 +56,9 @@ public class UserInterface {
         panel.add ( port );
         int result = JOptionPane.showOptionDialog ( null, panel, "Peer Connection Request", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null );
         if ( result == JOptionPane.YES_OPTION ) {
-            return new Tuple ( address.getText (), Integer.parseInt ( port.getText () ) );
+        	if ( UserInterface.validateIP ( address.getText () ) && ( UserInterface.validatePort ( port.getText () ) ) ) {
+        		return new Tuple ( address.getText (), Integer.parseInt ( port.getText () ) );
+        	}
         }
         return null;
 	}
@@ -74,6 +79,24 @@ public class UserInterface {
 			return true;
 		}
 		// By default return false
+		return false;
+	}
+
+	private static Boolean validateIP ( String address ) {
+	    try {
+	    	InetAddress inet = InetAddress.getByName( address );
+	    	return inet.getHostAddress ().equals ( address ) && inet instanceof Inet4Address;
+	    }
+	    catch ( Exception exception ) {
+	    	return false;
+	    }
+	}
+
+	private static Boolean validatePort ( String portString ) {
+		int port = Integer.parseInt ( portString );
+		if ( port > 49151 && port < 65535 ) {
+			return true;
+		}
 		return false;
 	}
 

@@ -53,12 +53,11 @@ public class MenuTray implements ActionListener {
 	 * This constructor initializes the tray icon in the system tray and populates it with the
 	 * initial data.  It also throws a custom exception if we fail to add to system tray or if the
 	 * command is not supported.
-	 * @param   History         history             Instance of the history class
 	 * @throws  CloudClipException
 	 */
-	public MenuTray ( History history ) throws CloudClipException {
-		// Save the history object and the clipboard object
-		this.history = history;
+	public MenuTray () throws CloudClipException {
+		// Save the history object
+		this.history = History.getInstance ();
 		// Get the icon resource path
 		String url = Preferences.IconPath;
 		// Set the icon
@@ -228,7 +227,23 @@ public class MenuTray implements ActionListener {
 				break;
 			// Handle the connect peer action
 			case "Connect":
-				UserInterface.peerConnectionInitialization ();
+				// Ask user to input information about peer
+				Tuple peer = UserInterface.peerConnectionInitialization ();
+				// If the information was passed and was valid
+				if ( peer != null ) {
+					// Attempt to connect to peer
+					try {
+						// Get the server instance
+						Server server = Server.getInstance ();
+						server.connect ( peer.first ().toString (), ( int ) peer.second () );
+						server.sendAll ( "Hello this is initialized brah!!!" );
+					}
+					// Catch any errors
+					catch ( Exception exception ) {
+						// Print out failure
+						System.out.println ( "Failed to connect to peer" );
+					}
+				}
 				break;
 			// Handle the about action
 			case "About":

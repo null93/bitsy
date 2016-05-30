@@ -13,6 +13,8 @@ import javax.net.ssl.SSLSocketFactory;
 
 public class Server {
 
+	private static Server instance;
+
 	private static ServerSocketFactory serverSocketFactory;
 
 	private static SocketFactory socketFactory;
@@ -21,7 +23,7 @@ public class Server {
 
 	private static volatile ArrayList <Connection> peers;
 
-	public Server ( int incomingPort ) throws Exception {
+	private Server ( int incomingPort ) throws Exception {
 		// Initialize the server socket factory and socket factory
 		Server.serverSocketFactory = SSLServerSocketFactory.getDefault ();
 		Server.socketFactory = SSLSocketFactory.getDefault ();
@@ -50,6 +52,16 @@ public class Server {
 		listen.start ();
 
 	}
+
+	public static Server getInstance () throws Exception {
+		// Check to see if the instance is initialized
+		if ( Server.instance == null ) {
+			// If it isn't then initialize one using the desired settings
+			Server.instance = new Server ( Preferences.Port );
+		}
+		// Return the Server instance
+		return Server.instance;
+	}
 	
 	public synchronized void connect ( String outgoingAddress, int outgoingPort ) {
 		try {
@@ -75,7 +87,6 @@ public class Server {
 		}
 	}
 
-
 	public synchronized static void sendAllBut ( Connection exclude, String data ) {
 		// Iterate through all of the peer connections
 		for ( Connection peer : Server.peers ) {
@@ -86,21 +97,14 @@ public class Server {
 		}
 	}
 
-
-	public static void main ( String args [] ) throws Exception {
-		if ( args [ 0 ].equals ("server") ) {
-			Server server = new Server ( 10007 );
+	public static String hash ( int length ) {
+		String library = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		String hash = "";
+		for ( int i = 0; i < length; i++ ) {
+			int index = ( int ) ( Math.random () * library.length () );
+			hash += library.charAt ( index );
 		}
-		else {
-			try {
-				Server server = new Server ( Integer.parseInt ( args [ 2 ] ) );
-				server.connect ( args [ 1 ], Integer.parseInt ( args [ 2 ] ) );
-				Server.sendAll ( "Hello from client" );
-			}
-			catch ( Exception e ) {
-				System.out.println ( "Fail from main" );
-			}
-		}
+		return hash;
 	}
 
 }

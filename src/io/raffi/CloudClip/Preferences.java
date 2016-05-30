@@ -28,6 +28,8 @@ public class Preferences extends JFrame {
 
 	protected static String IconPath = "Mac.Icon.png";
 
+	protected static int Port = 10007;
+
 	protected static int MaxNumberOfClips = 50;
 
 	protected static int ClipCutoff = 40;
@@ -41,6 +43,7 @@ public class Preferences extends JFrame {
 		System.out.println ( os );
 		// Based on the operating system change the static definitions
 		if ( os.contains ( "Windows" ) ) {
+			// Change to be the windows icon system tray size and design
 			Preferences.IconPath = "Windows.Icon.png";
 		}
 
@@ -85,6 +88,10 @@ public class Preferences extends JFrame {
 			Preferences.instance = new Preferences ();
 		}
 		return Preferences.instance;
+	}
+
+	public static void addRequest (  ) {
+
 	}
 
 	public void save () {

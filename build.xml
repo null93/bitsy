@@ -23,6 +23,8 @@
 		<delete>
     		<fileset dir="src" includes="**/*.class"/>
     		<fileset dir="." includes="**/*.DS_Store "/>
+    		<fileset dir="." includes="settings.json "/>
+    		<fileset dir="." includes="clips.json "/>
 		</delete>
 	</target>
 
