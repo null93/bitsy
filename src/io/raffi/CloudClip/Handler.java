@@ -1,5 +1,6 @@
 package io.raffi.CloudClip;
 
+import java.net.Socket;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
@@ -10,14 +11,17 @@ public class Handler {
 
 	private Packet packet;
 
+	private Connection connection;
+
 	private String address;
 
 	private int port;
 
-	public Handler ( String address, int port, String json ) {
-		// Save the address and port internally
-		this.address = address;
-		this.port = port;
+	public Handler ( Connection connection, String json ) {
+		// Save the address and port internally as well as the socket
+		this.connection = connection;
+		this.address = this.connection.getSocket ().getInetAddress ().toString ();
+		this.port = this.connection.getSocket ().getLocalPort ();
 		// Attempt to get instances of helper classes
 		try {
 			// Initialize classes that will be used beyond this scope within this class
@@ -48,11 +52,24 @@ public class Handler {
 		// Switch between the request types
 		switch ( request.get ( "type" ).toString () ) {
 			// This handles the initial request to be added to external peer list
-			case "handshake":
+			case "handshake-request":
 				// Check to see if the user wants to connect with this peer
 				if ( UserInterface.peerConnectionAuthorization ( this.address, this.port ) ) {
-					System.out.println ( "Accepted Connect Peer" );
+					// Save the connection hash id
+					String hash = request.get ( "hash" ).toString ();
+					// Add the peer locally to settings file
+					this.preferences.addRequest ( this.address, this.port, hash );
+					this.preferences.addPeer ( hash );
+					// Send the peer your information
+					this.connection.send ( this.packet.acceptHandshake ( hash ) );
 				}
+				break;
+			// This handles the the successful response to connect to peer
+			case "handshake-accept":
+				// Save the connection hash id
+				String hash = request.get ( "hash" ).toString ();
+				// Add this user to the peers list
+				this.preferences.addPeer ( hash );
 				break;
 		}
 	}

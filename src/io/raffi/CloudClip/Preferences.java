@@ -34,6 +34,8 @@ public class Preferences extends JFrame {
 
 	protected static int ClipCutoff = 40;
 
+	protected static Boolean Sync = true;
+
 	private Preferences () throws Exception {
 		// Initialize the JFrame
 		super ( "CloudClip Preferences" );

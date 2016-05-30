@@ -43,14 +43,18 @@ public class Packet {
 
 	public String sendHandshake ( String hash ) {
 		JSONObject json = new JSONObject ();
-		json.put ( "type", "handshake" );
+		json.put ( "type", "handshake-request" );
 		json.put ( "hash", hash );
 		json.put ( "clips", this.history.getClips () );
 		return json.toString ();
 	}
 
-	public String serverHandshake () {
-		return null;
+	public String acceptHandshake ( String hash ) {
+		JSONObject json = new JSONObject ();
+		json.put ( "type", "handshake-accept" );
+		json.put ( "hash", hash );
+		json.put ( "clips", this.history.getClips () );
+		return json.toString ();
 	}
 
 }

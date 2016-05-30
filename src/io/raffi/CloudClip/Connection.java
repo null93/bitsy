@@ -55,14 +55,16 @@ public class Connection implements Runnable {
 		catch ( Exception exception ) {}
 	}
 
+	public Socket getSocket () {
+		return this.socket;
+	}
+
 	public void run () {
 		while ( this.state == State.OPEN ) {
 			try {
 				while ( ( this.message = this.incoming.readLine () ) != null ) {
 					System.out.println ( "The response from server is: " + this.message );
-					String address = this.socket.getInetAddress ().toString ();
-					int port = this.socket.getPort ();
-					new Handler ( address, port, this.message );
+					new Handler ( this, this.message );
 				}
 			}
 			catch ( Exception exception ) {}
