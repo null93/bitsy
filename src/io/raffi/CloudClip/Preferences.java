@@ -110,7 +110,8 @@ public class Preferences extends JFrame {
 		// Initialize the counter variable
 		int i = 0;
 		// Loop through all the requests
-		for ( JSONObject request : ( JSONArray ) this.contents.get ( "requests" ) ) {
+		for ( Object requestObject : ( JSONArray ) this.contents.get ( "requests" ) ) {
+			JSONObject request = ( JSONObject ) requestObject;
 			// If the current request matches the passed one
 			if ( request.get ( "hash" ).toString ().equals ( hash ) ) {
 				// Add the request to be a peer and remove from the requests list

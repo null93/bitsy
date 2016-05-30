@@ -59,7 +59,7 @@ public class MenuTray implements ActionListener {
 	 * command is not supported.
 	 * @throws  CloudClipException
 	 */
-	public MenuTray () throws CloudClipException {
+	public MenuTray () throws Exception {
 		// Save the history object and the preferences object
 		this.history = History.getInstance ();
 		this.preferences = Preferences.getInstance ();

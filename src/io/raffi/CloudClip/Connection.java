@@ -60,7 +60,9 @@ public class Connection implements Runnable {
 			try {
 				while ( ( this.message = this.incoming.readLine () ) != null ) {
 					System.out.println ( "The response from server is: " + this.message );
-					new Handler ( this.message );
+					String address = this.socket.getInetAddress ().toString ();
+					int port = this.socket.getPort ();
+					new Handler ( address, port, this.message );
 				}
 			}
 			catch ( Exception exception ) {}

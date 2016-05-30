@@ -68,7 +68,7 @@ public class UserInterface {
 		return null;
 	}
 
-	public static Boolean peerConnectionAuthorization ( String address, int port ) throws Exception {
+	public static Boolean peerConnectionAuthorization ( String address, int port ) {
 		// Initialize and display a new confirmation dialog window
 		int result = JOptionPane.showConfirmDialog (
 			null,

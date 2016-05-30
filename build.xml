@@ -22,7 +22,18 @@
 		<delete dir="dist"/>
 		<delete>
     		<fileset dir="src" includes="**/*.class"/>
-    		<fileset dir="." includes="**/*.DS_Store "/>
+    		<fileset dir="." includes="**/*.DS_Store"/>
+		</delete>
+	</target>
+
+	<target name="nuke">
+		<delete dir="build"/>
+		<delete dir="dist"/>
+		<delete>
+    		<fileset dir="src" includes="**/*.class"/>
+    		<fileset dir="." includes="**/*.DS_Store"/>
+    		<fileset dir="." includes="clips.json"/>
+    		<fileset dir="." includes="settings.json"/>
 		</delete>
 	</target>
 
