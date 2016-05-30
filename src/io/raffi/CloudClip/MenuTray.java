@@ -235,8 +235,10 @@ public class MenuTray implements ActionListener {
 					try {
 						// Get the server instance
 						Server server = Server.getInstance ();
-						server.connect ( peer.first ().toString (), ( int ) peer.second () );
-						server.sendAll ( "Hello this is initialized brah!!!" );
+						String hash = server.connect (
+							peer.first ().toString (),
+							( int ) peer.second ()
+						);
 					}
 					// Catch any errors
 					catch ( Exception exception ) {

@@ -95,6 +95,10 @@ public class History {
 		return History.instance;
 	}
 
+	public JSONArray getClips () {
+		return ( JSONArray ) this.data.get ( "clips" );
+	}
+
 	/**
 	 * This function returns the current timestamp that is represented by UNIX time in milliseconds.
 	 * @return  int                                 UNIX milliseconds timestamp

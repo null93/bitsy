@@ -1,5 +1,8 @@
 package io.raffi.CloudClip;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import javax.swing.text.Utilities;
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
 import java.net.InetAddress;
@@ -46,21 +49,23 @@ public class UserInterface {
 
 	public static Tuple peerConnectionInitialization () {
 		Object [] options = { "Connect", "Cancel" };
-        TextField address = new TextField ( "IP Address", 300, 50, 10 );
-        TextField port = new TextField ( "Port", 300, 50, 10 );
-        JPanel panel = new JPanel ( new GridLayout ( 0, 1 ) );
-        JLabel label = new JLabel ( "" );
-        label.setFont (label.getFont ().deriveFont (10.0f));
-        panel.add ( address );
-        panel.add ( label );
-        panel.add ( port );
-        int result = JOptionPane.showOptionDialog ( null, panel, "Peer Connection Request", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null );
-        if ( result == JOptionPane.YES_OPTION ) {
-        	if ( UserInterface.validateIP ( address.getText () ) && ( UserInterface.validatePort ( port.getText () ) ) ) {
-        		return new Tuple ( address.getText (), Integer.parseInt ( port.getText () ) );
-        	}
-        }
-        return null;
+		TextField address = new TextField ( "IP Address", 300, 50, 10 );
+		TextField port = new TextField ( "Port", 300, 50, 10 );
+		JPanel panel = new JPanel ( new GridLayout ( 0, 1 ) );
+		JLabel label = new JLabel ( "" );
+		label.setFont (label.getFont ().deriveFont (10.0f));
+		panel.add ( address );
+		panel.add ( label );
+		panel.add ( port );
+		int result = JOptionPane.showOptionDialog ( null, panel, "Peer Connection Request", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null );
+		if ( result == JOptionPane.YES_OPTION ) {
+			if ( UserInterface.validateIP ( address.getText () ) && ( UserInterface.validatePort ( port.getText () ) ) ) {
+				System.out.println ( "User input is valid" );
+				return new Tuple ( address.getText (), Integer.parseInt ( port.getText () ) );
+			}
+		}
+		System.out.println ( "Failed because of user input" );
+		return null;
 	}
 
 	public static Boolean peerConnectionAuthorization ( String address, int port ) throws Exception {
@@ -83,18 +88,20 @@ public class UserInterface {
 	}
 
 	private static Boolean validateIP ( String address ) {
-	    try {
-	    	InetAddress inet = InetAddress.getByName( address );
-	    	return inet.getHostAddress ().equals ( address ) && inet instanceof Inet4Address;
-	    }
-	    catch ( Exception exception ) {
-	    	return false;
-	    }
+		Pattern IP_V4 = Pattern.compile (
+			"(([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d\\d?|2[0-4]\\d|25[0-5])",
+			Pattern.CASE_INSENSITIVE
+		);
+		Matcher m = IP_V4.matcher ( address );
+		if ( m.matches () ) {
+			return true;
+		}
+		return false;
 	}
 
 	private static Boolean validatePort ( String portString ) {
 		int port = Integer.parseInt ( portString );
-		if ( port > 49151 && port < 65535 ) {
+		if ( port > 0 && port < 65535 ) {
 			return true;
 		}
 		return false;

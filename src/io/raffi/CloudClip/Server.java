@@ -63,7 +63,7 @@ public class Server {
 		return Server.instance;
 	}
 	
-	public synchronized void connect ( String outgoingAddress, int outgoingPort ) {
+	public synchronized String connect ( String outgoingAddress, int outgoingPort ) {
 		try {
 			// Create a new socket
 			//Socket client = Server.socketFactory.createSocket ( outgoingAddress, outgoingPort );
@@ -74,9 +74,14 @@ public class Server {
 			Server.peers.add ( connection );
 			// Send a connection request to the server
 			Packet packet = Packet.getInstance ();
-			connection.send ( packet.clientHandshake () );
+			String hash = Server.hash ( 32 );
+			connection.send ( packet.sendHandshake ( hash ) );
+			return hash;
 		}
-		catch ( Exception exception ) {}
+		catch ( Exception exception ) {
+			System.out.println ( "Failed to connect to peer!" );
+		}
+		return null;
 	}
 
 	public synchronized static void sendAll ( String data ) {

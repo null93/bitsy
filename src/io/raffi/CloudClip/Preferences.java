@@ -90,11 +90,19 @@ public class Preferences extends JFrame {
 		return Preferences.instance;
 	}
 
-	public static void addRequest (  ) {
-
+	public void addRequest ( String address, int port, String hash ) {
+		// Initialize a new JSON object
+		JSONObject request = new JSONObject ();
+		// Populate that object with the passed data
+		request.put ( "address", address );
+		request.put ( "port", port );
+		request.put ( "hash", hash );
+		// Append that request object into the requests JSON array
+		( ( JSONArray ) this.contents.get ( "requests" ) ).add ( request );
+		// Save it back into the preferences file
 	}
 
-	public void save () {
+	private synchronized void save () {
 		// Check to see if the data directory exists
 		File folder = new File ( Preferences.DataFolder );
 		if ( !folder.exists () ) {

@@ -9,7 +9,16 @@ public class Packet {
 
 	private static Packet instance;
 
-	private Packet () {}
+	private History history;
+
+	private Packet () {
+		try {
+			this.history = History.getInstance ();
+		}
+		catch ( Exception exception ) {
+
+		}
+	}
 
 	public static JSONObject parse ( String packet ) {
 		// Initialize the parser
@@ -32,30 +41,16 @@ public class Packet {
 		return Packet.instance;
 	}
 
-	public String clientHandshake () {
+	public String sendHandshake ( String hash ) {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "handshake" );
-		json.put ( "hash", this.hash ( 32 ) );
-		json.put ( "clips", "..." );
+		json.put ( "hash", hash );
+		json.put ( "clips", this.history.getClips () );
 		return json.toString ();
 	}
 
 	public String serverHandshake () {
-		JSONObject json = new JSONObject ();
-		json.put ( "type", "connect" );
-		json.put ( "hash", this.hash ( 32 ) );
-		json.put ( "clips", "..." );
-		return json.toString ();
-	}
-
-	public String hash ( int length ) {
-		String output = "";
-		String library = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		while ( length > 0 ) {
-			output += library.charAt ( ( int ) ( Math.random () * library.length () ) );
-			length--;
-		}
-		return output;
+		return null;
 	}
 
 }
