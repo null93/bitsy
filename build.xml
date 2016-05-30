@@ -10,6 +10,13 @@
 		<pathelement location="build/classes" />
 	</path>
 
+	<target name="default">
+		<antcall target="clean"/>
+		<antcall target="build"/>
+		<antcall target="jar"/>
+		<antcall target="run"/>
+	</target>
+
 	<target name="clean">
 		<delete dir="build"/>
 		<delete dir="dist"/>

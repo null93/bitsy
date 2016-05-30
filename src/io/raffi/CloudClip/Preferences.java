@@ -22,9 +22,11 @@ public class Preferences extends JFrame {
 
 	//protected static String ClipsDataPath = Home + Support + "clips.json";
 	protected static String ClipsDataPath = "./clips.json";
-	
+
 	//protected static String SettingsDataPath = Home + Support + "settings.json";
 	protected static String SettingsDataPath = "./settings.json";
+
+	protected static String IconPath = "Mac.Icon.png";
 
 	protected static int MaxNumberOfClips = 50;
 
@@ -33,7 +35,15 @@ public class Preferences extends JFrame {
 	private Preferences () throws Exception {
 		// Initialize the JFrame
 		super ( "CloudClip Preferences" );
-		// Initialize the 
+
+		// Get the operating system
+		String os = System.getProperty ( "os.name" );
+		// Based on the operating system change the static definitions
+		if ( os.contains ( "windows" ) ) {
+			Preferences.IconPath = "Windows.Icon.png";
+		}
+
+		// Initialize the
 		File directory = new File ( DataFolder );
 		File settings = new File ( SettingsDataPath );
 		if ( !directory.exists () ) {

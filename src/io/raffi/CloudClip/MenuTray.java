@@ -59,8 +59,10 @@ public class MenuTray implements ActionListener {
 	public MenuTray ( History history ) throws CloudClipException {
 		// Save the history object and the clipboard object
 		this.history = history;
+		// Get the icon resource path
+		String url = Preferences.IconPath;
 		// Set the icon
-		Image icon = Toolkit.getDefaultToolkit ().getImage ( getClass ().getResource ("Icon.png") );
+		Image icon = Toolkit.getDefaultToolkit ().getImage ( getClass ().getResource ( url ) );
 		// Initialize the clips hash map
 		this.clips = new LinkedHashMap <String, MenuItem> ();
 		// Check to see that the SystemTray class is supported in this version of java

@@ -50,7 +50,7 @@ public class Server {
 		listen.start ();
 
 	}
-
+	
 	public synchronized void connect ( String outgoingAddress, int outgoingPort ) {
 		try {
 			// Create a new socket
@@ -74,6 +74,7 @@ public class Server {
 			peer.send ( data );
 		}
 	}
+
 
 	public synchronized static void sendAllBut ( Connection exclude, String data ) {
 		// Iterate through all of the peer connections
