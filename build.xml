@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="CloudClip" default="default" basedir="."> 
-
+	<property environment="env" />
 	<taskdef name="bundleapp" classname="com.oracle.appbundler.AppBundlerTask" classpath="lib/appbundler-1.0.jar" />
 
 	<path id="classpath">
@@ -61,9 +61,9 @@
 	    </copy>
 		<jar destfile="build/jar/CloudClip.jar" basedir="build/classes" >
 			<manifest>
-				<attribute name="Main-Class" value="CloudClip"/>
+				<attribute name="Main-Class" value="io.raffi.CloudClip.CloudClip"/>
 			</manifest>
-			<zipgroupfileset dir="lib" includes="*.jar"/>
+			<zipgroupfileset dir="lib" includes="json-simple.jar"/>
 			<fileset dir="src">
             	<include name="**/*.png" />
         	</fileset>
@@ -75,7 +75,8 @@
 
 	<target name="app">
 		<mkdir dir="dist"/>
-		<bundleapp outputdirectory="dist" name="CloudClip" displayname="CloudClip" identifier="CloudClip" icon="design/Icon.icns" mainclassname="CloudClip" >
+		<runtime dir="/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home" />
+		<bundleapp outputdirectory="dist" name="CloudClip" displayname="CloudClip" identifier="CloudClip" icon="design/Icon.icns" mainclassname="io.raffi.CloudClip.CloudClip" >
 			<classpath file="dist/CloudClip.jar" />
 		</bundleapp>
 	</target>

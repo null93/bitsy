@@ -1,4 +1,4 @@
-package Graphic;
+package io.raffi.CloudClip.Graphic;
 
 import java.awt.Insets;
 import java.awt.Dimension;

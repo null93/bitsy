@@ -61,8 +61,9 @@ public class Handler {
 			case "handshake-request":
 				// Check to see if the user wants to connect with this peer
 				if ( UserInterface.peerConnectionAuthorization ( this.address, this.port ) ) {
-					// Save the connection hash id
+					// Save the connection hash id and assign it to the connection
 					String hash = request.get ( "hash" ).toString ();
+					this.connection.hash = hash;
 					// Add the peer locally to settings file
 					this.preferences.addRequest ( this.address, this.port, hash );
 					this.preferences.addPeer ( hash );
@@ -72,10 +73,16 @@ public class Handler {
 				break;
 			// This handles the the successful response to connect to peer
 			case "handshake-accept":
-				// Save the connection hash id
+				// Save the connection hash id and save the hash
 				String hash = request.get ( "hash" ).toString ();
 				// Add this user to the peers list
 				this.preferences.addPeer ( hash );
+				// Update the menu to be able to disconnect
+				this.menu.update ( this.history.export () );
+				break;
+			case "handshake-reject":
+
+
 				break;
 			// This handles when a clip is sent to us
 			case "clip":

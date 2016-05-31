@@ -22,12 +22,12 @@ import java.util.ArrayList;
  */
 public class ClipboardManager extends Thread {
 
-
-
+	/**
+	 * This is the clipboard manager instance and is used internally as a singleton to access the
+	 * system clipboard.
+	 * @var     ClipboardManager    instance        The singleton instance of the clipboard manager
+	 */
 	private static ClipboardManager instance;
-
-
-
 
 	/**
 	 * This data member holds an instance of the History class, we will use it to set the values
@@ -54,12 +54,11 @@ public class ClipboardManager extends Thread {
 	 */
 	private String current;
 
-
-
+	/**
+	 * This is used internally to send out packets to the connected peers when necessary.
+	 * @var     Packet          packet              The packet generator instance
+	 */
 	private Packet packet;
-
-
-
 
 	/**
 	 * This constructor takes in the history object and the menu object and it saves it internally.
@@ -70,11 +69,8 @@ public class ClipboardManager extends Thread {
 	 */
 	private ClipboardManager () {
 		// Get the history and menu instances
-		try {
-			ClipboardManager.history = History.getInstance ();
-			ClipboardManager.menu = MenuTray.getInstance ();
-		}
-		catch ( Exception exception ) {}
+		ClipboardManager.history = History.getInstance ();
+		ClipboardManager.menu = MenuTray.getInstance ();
 		// Initialize all the instances
 		this.packet = Packet.getInstance ();
 		// Set the current string in the clipboard
@@ -85,12 +81,19 @@ public class ClipboardManager extends Thread {
 		this.start ();
 	}
 
-
-
+	/**
+	 * This static class is in charge of only making one instance of this class since it is a
+	 * designed using the singleton design pattern.
+	 * @return  ClipboardManager                    The singleton instance
+	 * @static
+	 */
 	public static ClipboardManager getInstance () {
+		// Check to see if the instance is already initialized
 		if ( ClipboardManager.instance == null ) {
+			// If it isn't then initialize it
 			ClipboardManager.instance = new ClipboardManager ();
 		}
+		// Return that instance to the caller
 		return ClipboardManager.instance;
 	}
 

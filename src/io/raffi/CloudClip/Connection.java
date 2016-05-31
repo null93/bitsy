@@ -17,13 +17,15 @@ public class Connection implements Runnable {
 
 	private String message;
 
+	public String hash = null;
+
 	private Connection.State state = State.OPEN;
 
 	public enum State {
 		OPEN, CLOSED;
 	}
 
-	public Connection ( Socket socket ) throws Exception {
+	public Connection ( Socket socket ) {
 		// Save the socket connection
 		this.socket = socket;
 		System.out.println ( socket.getRemoteSocketAddress ().toString () );
@@ -34,39 +36,48 @@ public class Connection implements Runnable {
 			outgoing.flush ();
 		}
 		// Attempt to catch any exceptions
-		catch ( Exception exception ) {
-			// Throw our own exception
-			throw new Exception ( "Connection with client was interrupted!" );
-		}
+		catch ( Exception exception ) {}
 	}
 
 	public void send ( String data ) {
+		// Flush the buffer and print to it
 		this.outgoing.flush ();
 		this.outgoing.println ( data );
 	}
 
 	public void close () {
+		// Mark this connection as closed, to kill the thread that listens to input
 		this.state = State.CLOSED;
+		// Try to close all files
 		try {
+			// Close the incoming / outgoing files as well as the socket
 			this.outgoing.close ();
 			this.incoming.close ();
 			this.socket.close ();
 		}
+		// Ignore any exceptions
 		catch ( Exception exception ) {}
 	}
 
 	public Socket getSocket () {
+		// Return the socket for this connection
 		return this.socket;
 	}
 
 	public void run () {
+		// Keep running until we mark the connection as closed
 		while ( this.state == State.OPEN ) {
+			// Try to read the message that was sent to us
 			try {
+				// Read all the lines until there is nothing to read
 				while ( ( this.message = this.incoming.readLine () ) != null ) {
+					// For debugging purposes, print out the message
 					System.out.println ( "The response from server is: " + this.message );
+					// Spawn a new handler instance to handle the message
 					new Handler ( this, this.message );
 				}
 			}
+			// Catch any exceptions that are thrown and ignore them
 			catch ( Exception exception ) {}
 		}
 	}

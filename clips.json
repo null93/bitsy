@@ -1,1 +1,1 @@
-{"clips":[{"clip":"Subclasses of ServerSocket use this method to override accept() to return their own subclass of socket.","timestamp":1464598898},{"clip":"Returns the binding state of the ServerSocket.","timestamp":1464598897},{"clip":"Returns the closed state of the ServerSocket.","timestamp":1464598906}]}
+{"clips":[]}

@@ -1,13 +1,9 @@
-import io.raffi.CloudClip.Preferences;
-import io.raffi.CloudClip.History;
-import io.raffi.CloudClip.MenuTray;
-import io.raffi.CloudClip.ClipboardManager;
-import io.raffi.CloudClip.Server;
-import io.raffi.CloudClip.UserInterface;
+package io.raffi.CloudClip;
 
 public class CloudClip {
 
-	public static void main ( String [] args ) throws Exception {
+	public static void main ( String [] args ) {
+		// Initialize all the classes in this order
         Preferences settings = Preferences.getInstance ();
         Server server = Server.getInstance ();
         History history = History.getInstance ();

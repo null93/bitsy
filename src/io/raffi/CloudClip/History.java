@@ -26,7 +26,7 @@ public class History {
 	/**
 	 * This data member holds the instance of the History class, since this class will be a
 	 * singleton.  It is singleton, because it only needs write access to the clips.json file once.
-	 * @var 	History 		instance 			The one instance of the History class
+	 * @var     History         instance            The one instance of the History class
 	 */
 	private static History instance;
 
@@ -42,7 +42,7 @@ public class History {
 	 * makes it.  If it is it loads it into the internally defined JSONObject data member.
 	 * @throws  Exception
 	 */
-	private History () throws CloudClipException {
+	private History () {
 		// Check to see if the data directory exists
 		File folder = new File ( Preferences.DataFolder );
 		if ( !folder.exists () ) {
@@ -60,24 +60,11 @@ public class History {
 				.useDelimiter ("\\Z").next ();
 				// Initialize json parser
 				JSONParser parser = new JSONParser ();
-				// Try to parse the json string
-				try {
-					// Parse the JSON string, and save internally
-					this.data = ( JSONObject ) parser.parse ( contents );
-				}
-				// Attempt to catch any parse exceptions
-				catch ( Exception exception ) {
-					// Throw custom exception
-					throw new CloudClipException (
-						"Could not open the history file in: " + Preferences.ClipsDataPath
-					);
-				}
+				// Parse the JSON string, and save internally
+				this.data = ( JSONObject ) parser.parse ( contents );
 			}
 			// Catch any errors while scanning
-			catch ( Exception exception ) {
-				// Throw our own exception
-				throw new CloudClipException ( "Cannot open file contents for the clips.json file" );
-			}
+			catch ( Exception exception ) {}
 		}
 		else {
 			// Initialize an empty JSON array
@@ -85,7 +72,13 @@ public class History {
 		}
 	}
 
-	public static History getInstance () throws CloudClipException {
+	/**
+	 * This static class is in charge of only making one instance of this class since it is a
+	 * designed using the singleton design pattern.
+	 * @return  History                             The singleton instance
+	 * @static
+	 */
+	public static History getInstance () {
 		// Check to see if the instance of this class is already initialized
 		if ( History.instance == null ) {
 			// The initialize an instance
@@ -95,6 +88,10 @@ public class History {
 		return History.instance;
 	}
 
+	/**
+	 * This class returns the clips JSON array to the caller.  It is used to sync clips to peers.
+	 * @return  JSONArray                           The clips data member
+	 */
 	public JSONArray getClips () {
 		return ( JSONArray ) this.data.get ( "clips" );
 	}

@@ -12,12 +12,7 @@ public class Packet {
 	private History history;
 
 	private Packet () {
-		try {
-			this.history = History.getInstance ();
-		}
-		catch ( Exception exception ) {
-
-		}
+		this.history = History.getInstance ();
 	}
 
 	public static JSONObject parse ( String packet ) {
@@ -34,6 +29,12 @@ public class Packet {
 		return null;
 	}
 
+	/**
+	 * This static class is in charge of only making one instance of this class since it is a
+	 * designed using the singleton design pattern.
+	 * @return 	Packet 								The singleton instance
+	 * @static
+	 */
 	public static Packet getInstance () {
 		if ( Packet.instance == null ) {
 			Packet.instance = new Packet ();
@@ -54,6 +55,13 @@ public class Packet {
 		json.put ( "type", "handshake-accept" );
 		json.put ( "hash", hash );
 		json.put ( "clips", this.history.getClips () );
+		return json.toString ();
+	}
+
+	public String rejectHandshake ( String hash ) {
+		JSONObject json = new JSONObject ();
+		json.put ( "type", "handshake-reject" );
+		json.put ( "hash", hash );
 		return json.toString ();
 	}
 

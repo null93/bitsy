@@ -15,6 +15,8 @@ public class Server {
 
 	private static Server instance;
 
+	private static Preferences preferences;
+
 	private static ServerSocketFactory serverSocketFactory;
 
 	private static SocketFactory socketFactory;
@@ -23,36 +25,44 @@ public class Server {
 
 	private static volatile ArrayList <Connection> peers;
 
-	private Server ( int incomingPort ) throws Exception {
-		// Initialize the server socket factory and socket factory
-		Server.serverSocketFactory = SSLServerSocketFactory.getDefault ();
-		Server.socketFactory = SSLSocketFactory.getDefault ();
-		// Initialize the socket and clients array list
-		// Server.server = Server.serverSocketFactory.createServerSocket ( incomingPort );
-		Server.server = new ServerSocket ( incomingPort );
-		Server.peers = new ArrayList <Connection> ();
-		// Spawn a new thread to listen for connections and start the thread
-		Thread listen = new Thread ( new Runnable () {
-			public void run () {
-				// Loop forever while listening for client connections
-				while ( true ) {
-					try {
-						// Block until we get a client, and then append to the array
-						Socket client = Server.server.accept ();
-						Connection connection = new Connection ( client );
-						new Thread ( connection ).start ();
-						Server.peers.add ( connection );
-						System.out.println ( "Accepted connection!" );
+	private Server ( int incomingPort ) {
+		// Get the class instances
+		Server.preferences = Preferences.getInstance ();
+		// Try to initialize a server socket
+		try {
+			// Initialize the server socket factory and socket factory
+			Server.serverSocketFactory = SSLServerSocketFactory.getDefault ();
+			Server.socketFactory = SSLSocketFactory.getDefault ();
+			// Initialize the socket and clients array list
+			// Server.server = Server.serverSocketFactory.createServerSocket ( incomingPort );
+			Server.server = new ServerSocket ( incomingPort );
+			Server.peers = new ArrayList <Connection> ();
+			// Spawn a new thread to listen for connections and start the thread
+			Thread listen = new Thread ( new Runnable () {
+				public void run () {
+					// Loop forever while listening for client connections
+					while ( true ) {
+						// Try to accept connections
+						try {
+							// Block until we get a client, and then append to the array
+							Socket client = Server.server.accept ();
+							Connection connection = new Connection ( client );
+							new Thread ( connection ).start ();
+							Server.peers.add ( connection );
+						}
+						// Catch any exceptions and ignore them
+						catch ( Exception exception ) {}
 					}
-					catch ( Exception exception ) {}
-				}
-		    }
-		});
-		listen.start ();
-
+			    }
+			});
+			// Spawn listening thread and start it
+			listen.start ();
+		}
+		// Catch and ignore any exceptions that are thrown
+		catch ( Exception exception ) {}
 	}
 
-	public static Server getInstance () throws Exception {
+	public static Server getInstance () {
 		// Check to see if the instance is initialized
 		if ( Server.instance == null ) {
 			// If it isn't then initialize one using the desired settings
@@ -63,6 +73,7 @@ public class Server {
 	}
 	
 	public synchronized String connect ( String outgoingAddress, int outgoingPort ) {
+		// Try to connect to a peer connection
 		try {
 			// Create a new socket
 			//Socket client = Server.socketFactory.createSocket ( outgoingAddress, outgoingPort );
@@ -73,21 +84,25 @@ public class Server {
 			Server.peers.add ( connection );
 			// Send a connection request to the server
 			Packet packet = Packet.getInstance ();
-			String hash = Server.hash ( 32 );
-			connection.send ( packet.sendHandshake ( hash ) );
-			return hash;
+			connection.hash = Server.hash ( 32 );
+			connection.send ( packet.sendHandshake ( connection.hash ) );
+			return connection.hash;
 		}
+		// Catch any exceptions that are thrown and return null as hash
 		catch ( Exception exception ) {
-			System.out.println ( "Failed to connect to peer!" );
+			// By default return null
+			return null;
 		}
-		return null;
 	}
 
 	public synchronized static void sendAll ( String data ) {
 		// Iterate through all of the peer connections
 		for ( Connection peer : Server.peers ) {
-			// Send this peer the data
-			peer.send ( data );
+			// Make sure that they are in our peers list
+			if ( Server.preferences.isPeer ( peer.hash ) ) {
+				// Send this peer the data
+				peer.send ( data );
+			}
 		}
 	}
 

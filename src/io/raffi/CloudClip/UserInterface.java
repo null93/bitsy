@@ -16,8 +16,8 @@ import javax.swing.JComboBox;
 import java.awt.Toolkit;
 import java.lang.Runtime;
 import javax.swing.ImageIcon;
-import Graphic.Button;
-import Graphic.TextField;
+import io.raffi.CloudClip.Graphic.Button;
+import io.raffi.CloudClip.Graphic.TextField;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 

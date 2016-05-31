@@ -40,9 +40,12 @@ public class MenuTray implements ActionListener {
 	 */
 	private History history;
 
-
+	/**
+	 * This data member holds the instance of the preferences class and is used to read the
+	 * settings.
+	 * @var 	Preferences 	preferences 		The preferences singleton instance reference
+	 */
 	private Preferences preferences;
-
 
 	/**
 	 * This internal data member holds the instance to the popup menu that we created for the system
@@ -64,7 +67,7 @@ public class MenuTray implements ActionListener {
 	 * command is not supported.
 	 * @throws  CloudClipException
 	 */
-	private MenuTray () throws Exception {
+	private MenuTray () {
 		// Save the history object and the preferences object
 		this.history = History.getInstance ();
 		this.preferences = Preferences.getInstance ();
@@ -91,23 +94,24 @@ public class MenuTray implements ActionListener {
 				// Add the tray icon to the tray
 				tray.add ( trayIcon );
 			}
-			// If there is an error, throw an exception
-			catch ( Exception exception ) {
-				// Throw a custom exception
-				throw new CloudClipException ( "Could not add TrayIcon to SystemTray" );
-			}
-		}
-		// If SystemTray isn't supported, then throw an exception
-		else {
-			// Throw a custom exception
-			throw new CloudClipException ( "System Tray isn't supported" );
+			// Catch any exceptions
+			catch ( Exception exception ) {}
 		}
 	}
 
-	public static MenuTray getInstance () throws Exception {
+	/**
+	 * This static class is in charge of only making one instance of this class since it is a
+	 * designed using the singleton design pattern.
+	 * @return 	MenuTray 							The singleton instance
+	 * @static
+	 */
+	public static MenuTray getInstance () {
+		// See if there are any instances initialized
 		if ( MenuTray.instance == null ) {
+			// If there are none, then initialize one
 			MenuTray.instance = new MenuTray ();
 		}
+		// Return that instance
 		return MenuTray.instance;
 	}
 
@@ -209,13 +213,11 @@ public class MenuTray implements ActionListener {
 				MenuItem peerItem = new MenuItem ( peer.get ( "address" ).toString () );
 				peerItem.addActionListener ( this );
 				disconnect.add ( peerItem );
-
-				// REFRESH MENU HERE
-
 			}
 			// Add the disconnect menu into the popup menu
 			this.popup.add ( disconnect );
 		}
+		// Add the rest of the menu items
 		this.popup.add ( clear );
 		this.popup.addSeparator ();
 		this.popup.add ( preferences );

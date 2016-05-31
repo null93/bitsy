@@ -36,13 +36,12 @@ public class Preferences extends JFrame {
 
 	protected static Boolean Sync = true;
 
-	private Preferences () throws Exception {
+	private Preferences () {
 		// Initialize the JFrame
 		super ( "CloudClip Preferences" );
 
 		// Get the operating system
 		String os = System.getProperty ( "os.name" );
-		System.out.println ( os );
 		// Based on the operating system change the static definitions
 		if ( os.contains ( "Windows" ) ) {
 			// Change to be the windows icon system tray size and design
@@ -56,39 +55,46 @@ public class Preferences extends JFrame {
 			directory.mkdir ();
 		}
 		if ( !settings.exists () ) {
-			settings.createNewFile ();
-			this.contents = new JSONObject ();
-			this.contents.put ( "max_number_of_clips", Preferences.MaxNumberOfClips );
-			this.contents.put ( "ClipCutoff", Preferences.ClipCutoff );
-			this.contents.put ( "peers", new JSONArray () );
-			this.contents.put ( "requests", new JSONArray () );
-			this.save ();
+			try {
+				settings.createNewFile ();
+				this.contents = new JSONObject ();
+				this.contents.put ( "max_number_of_clips", Preferences.MaxNumberOfClips );
+				this.contents.put ( "ClipCutoff", Preferences.ClipCutoff );
+				this.contents.put ( "peers", new JSONArray () );
+				this.contents.put ( "requests", new JSONArray () );
+				this.save ();
+			}
+			catch ( Exception exception ) {}
 		}
 		else {
-			// Get the file contents
-			String contents = new Scanner ( new File ( Preferences.SettingsDataPath ) )
-			.useDelimiter ("\\Z").next ();
-			// Initialize json parser
-			JSONParser parser = new JSONParser ();
-			// Try to parse the json string
+			// Try to extract and parse that data
 			try {
+				// Get the file contents
+				String contents = new Scanner ( new File ( Preferences.SettingsDataPath ) )
+				.useDelimiter ("\\Z").next ();
+				// Initialize json parser
+				JSONParser parser = new JSONParser ();
 				// Parse the JSON string, and save internally
 				this.contents = ( JSONObject ) parser.parse ( contents );
 			}
-			// Attempt to catch any parse exceptions
-			catch ( Exception exception ) {
-				// Throw custom exception
-				throw new CloudClipException (
-					"Could not open the settings file in: " + Preferences.SettingsDataPath
-				);
-			}
+			// Attempt to catch any exceptions
+			catch ( Exception exception ) {}
 		}
 	}
 
-	public static Preferences getInstance () throws Exception {
+	/**
+	 * This static class is in charge of only making one instance of this class since it is a
+	 * designed using the singleton design pattern.
+	 * @return 	Preferences 						The singleton instance
+	 * @static
+	 */
+	public static Preferences getInstance () {
+		// Check to see if the instance is initialized
 		if ( Preferences.instance == null ) {
+			// If it isn't then initialize one
 			Preferences.instance = new Preferences ();
 		}
+		// Return an instance of the Preferences class
 		return Preferences.instance;
 	}
 
@@ -133,6 +139,16 @@ public class Preferences extends JFrame {
 		return ( JSONArray ) this.contents.get ( "peers" );
 	}
 
+	public Boolean isPeer ( String hash ) {
+		for ( Object peerObject : ( JSONArray ) this.contents.get ( "peers" ) ) {
+			JSONObject peer = ( JSONObject ) peerObject;
+			if ( peer.get ( "hash" ).toString ().equals ( hash ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private synchronized void save () {
 		// Check to see if the data directory exists
 		File folder = new File ( Preferences.DataFolder );
@@ -150,10 +166,7 @@ public class Preferences extends JFrame {
 			writer.close ();
 		}
 		// Catch any exceptions
-		catch ( Exception exception ) {
-			// Report to user that there is a non fatal error
-			System.out.println ( "Could not save settings file in: " + Preferences.SettingsDataPath );
-		}
+		catch ( Exception exception ) {}
 	}
 
 }
