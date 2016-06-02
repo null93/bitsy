@@ -67,6 +67,8 @@ public class Handler {
 					}
 					// Send the peer your information
 					this.connection.send ( this.packet.acceptHandshake () );
+					// Update the menu tray
+					this.menu.update ( this.history.export () );
 				}
 				// Otherwise send a rejection packet so everything was clean
 				else {
