@@ -96,7 +96,7 @@ public class History {
 			// Cast the object as a JSON object
 			JSONObject clip = ( JSONObject ) clipObject;
 			// Set it into the history
-			this.set ( clip.get ( "clip" ).toString () );
+			this.set ( clip.get ( "clip" ).toString (), clip.get ( "timestamp" ).toString () );
 		}
 		// Copy the top element into clipboard
 		JSONObject clip = ( JSONObject ) local.get ( 0 );
