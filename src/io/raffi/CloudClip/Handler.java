@@ -70,6 +70,8 @@ public class Handler {
 						// Update the address and port
 						this.preferences.updatePeer ( this.address, port, hash );
 					}
+					// Merge the clipboards
+					this.history.merge ( Packet.parseArray ( request.get ( "clips" ).toString () ) );
 					// Send the peer your information
 					this.connection.send ( this.packet.acceptHandshake () );
 					// Update the menu tray
@@ -90,6 +92,8 @@ public class Handler {
 					// Add this user to the peers list
 					this.preferences.addPeer ( hash );
 				}
+				// Merge the clipboards
+				this.history.merge ( Packet.parseArray ( request.get ( "clips" ).toString () ) );
 				// Update the menu to be able to disconnect
 				this.menu.update ( this.history.export () );
 				break;

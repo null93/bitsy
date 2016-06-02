@@ -88,6 +88,21 @@ public class History {
 		return History.instance;
 	}
 
+	public synchronized void merge ( JSONArray source ) {
+		// Get the local clips from history class
+		JSONArray local = this.getClips ();
+		// Loop though the source
+		for ( Object clipObject : source ) {
+			// Cast the object as a JSON object
+			JSONObject clip = ( JSONObject ) clipObject;
+			// Set it into the history
+			this.set ( clip.get ( "clip" ).toString () );
+		}
+		// Copy the top element into clipboard
+		JSONObject clip = ( JSONObject ) local.get ( 0 );
+		ClipboardManager.write ( clip.get ( "clip" ).toString () );
+	}
+
 	/**
 	 * This class returns the clips JSON array to the caller.  It is used to sync clips to peers.
 	 * @return  JSONArray                           The clips data member
@@ -160,6 +175,10 @@ public class History {
 	 * @return  void
 	 */
 	public void set ( String clip ) {
+		this.set ( clip, null );
+	}
+
+	public void set ( String clip, String timestamp ) {
 		// Firstly sort the data array
 		this.sort ();
 		// Trim to the max size of items
@@ -168,7 +187,8 @@ public class History {
 			clips.remove ( clips.size () - 1 );
 		}
 		// Check if the value already exists in the set
-		if ( this.find ( clip ) == -1 ) {
+		int index = -1;
+		if ( ( index = this.find ( clip ) ) == -1 ) {
 			// Check to see if we need to make more room
 			if ( clips.size () >= Preferences.MaxNumberOfClips ) {
 				// Make room for the target
@@ -183,8 +203,20 @@ public class History {
 			clips.add ( entry );
 		}
 		else {
-			// Otherwise, we want to update the timestamp
-			this.touch ( clip );
+			if ( timestamp == null ) {
+				// Otherwise, we want to update the timestamp
+				this.touch ( clip );
+			}
+			else {
+				// Get the found clip
+				JSONObject found = ( JSONObject ) clips.get ( index );
+				if ( Integer.parseInt ( found.get ("timestamp").toString () ) < Integer.parseInt ( timestamp ) ) {
+					found.put ( "timestamp", timestamp );
+					this.data.put ( "clips", clips );
+					this.save ();
+				}
+			}
+
 		}
 		// Save the data
 		this.save ();

@@ -29,6 +29,20 @@ public class Packet {
 		return null;
 	}
 
+	public static JSONArray parseArray ( String packet ) {
+		// Initialize the parser
+		JSONParser parser = new JSONParser ();
+		// Try to parse the json string
+		try {
+			// Parse the JSON string, and return it
+			return ( JSONArray ) parser.parse ( packet );
+		}
+		// Attempt to catch any parse exceptions
+		catch ( Exception exception ) {}
+		// By default return null
+		return null;
+	}
+
 	/**
 	 * This static class is in charge of only making one instance of this class since it is a
 	 * designed using the singleton design pattern.

@@ -34,7 +34,7 @@ public class Preferences extends JFrame {
 
 	protected static String IconPath = "Mac.Icon.png";
 
-	protected static int Port = 42423;
+	protected static int Port = 55555;
 
 	protected static int MaxNumberOfClips = 50;
 
