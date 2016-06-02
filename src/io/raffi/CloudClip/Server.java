@@ -10,6 +10,8 @@ import javax.net.SocketFactory;
 import javax.net.ServerSocketFactory;
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocketFactory;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 public class Server {
 
@@ -92,6 +94,19 @@ public class Server {
 		catch ( Exception exception ) {
 			// By default return null
 			return null;
+		}
+	}
+
+	public void connectToPeers ( JSONArray peers ) {
+		// Loop through all the peers
+		for ( Object peerObject : peers ) {
+			// Cast the peer to be of JSON Object
+			JSONObject peer = ( JSONObject ) peerObject;
+			// Get the IP address and the port number of peer
+			String address = peer.get ( "address" ).toString ();
+			int port = Integer.parseInt ( peer.get ( "port" ).toString () );
+			// Attempt to connect to them
+			this.connect ( address, port );
 		}
 	}
 

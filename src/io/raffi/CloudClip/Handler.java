@@ -60,12 +60,17 @@ public class Handler {
 			case "handshake-request":
 				// Get the port from the JSON packet
 				int port = Integer.parseInt ( request.get ( "port" ).toString () );
+				// Check to see if peer is already been established
+				Boolean isPeer = this.preferences.isPeer ( hash );
 				// Check to see if the user wants to connect with this peer
-				if ( UserInterface.peerConnectionAuthorization ( this.address, port ) ) {
+				if ( isPeer || UserInterface.peerConnectionAuthorization ( this.address, port ) ) {
 					this.connection.hash = hash;
-					// Add the peer locally to settings file
-					this.preferences.addRequest ( this.address, port, hash );
-					this.preferences.addPeer ( hash );
+					// Check to see is peer has been added already ( we don't want duplicates )
+					if ( !isPeer ) {
+						// Add the peer locally to settings file
+						this.preferences.addRequest ( this.address, port, hash );
+						this.preferences.addPeer ( hash );
+					}
 					// Send the peer your information
 					this.connection.send ( this.packet.acceptHandshake ( hash ) );
 				}
@@ -77,8 +82,11 @@ public class Handler {
 				break;
 			// This handles the the successful response to connect to peer
 			case "handshake-accept":
-				// Add this user to the peers list
-				this.preferences.addPeer ( hash );
+				// Check to see if the peer has already been established
+				if ( !this.preferences.isPeer ( hash ) ) {
+					// Add this user to the peers list
+					this.preferences.addPeer ( hash );
+				}
 				// Update the menu to be able to disconnect
 				this.menu.update ( this.history.export () );
 				break;

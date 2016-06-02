@@ -9,6 +9,8 @@ public class CloudClip {
         History history = History.getInstance ();
         MenuTray menu = MenuTray.getInstance ();
 		ClipboardManager clipboard = ClipboardManager.getInstance ();
+		// Connect to established peers
+		server.connectToPeers ( settings.getPeers () );
 	}
 
 }
