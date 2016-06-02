@@ -19,13 +19,10 @@ public class Handler {
 
 	private String address;
 
-	private int port;
-
 	public Handler ( Connection connection, String json ) {
 		// Save the address and port internally as well as the socket
 		this.connection = connection;
 		this.address = this.connection.getSocket ().getInetAddress ().getHostAddress ().toString ();
-		this.port = this.connection.getSocket ().getLocalPort ();
 		// Attempt to get instances of helper classes
 		try {
 			// Initialize classes that will be used beyond this scope within this class
@@ -59,13 +56,15 @@ public class Handler {
 		switch ( request.get ( "type" ).toString () ) {
 			// This handles the initial request to be added to external peer list
 			case "handshake-request":
+				// Get the port from the JSON packet
+				int port = Integer.parseInt ( request.get ( "port" ).toString () );
 				// Check to see if the user wants to connect with this peer
-				if ( UserInterface.peerConnectionAuthorization ( this.address, this.port ) ) {
+				if ( UserInterface.peerConnectionAuthorization ( this.address, port ) ) {
 					// Save the connection hash id and assign it to the connection
 					String hash = request.get ( "hash" ).toString ();
 					this.connection.hash = hash;
 					// Add the peer locally to settings file
-					this.preferences.addRequest ( this.address, this.port, hash );
+					this.preferences.addRequest ( this.address, port, hash );
 					this.preferences.addPeer ( hash );
 					// Send the peer your information
 					this.connection.send ( this.packet.acceptHandshake ( hash ) );

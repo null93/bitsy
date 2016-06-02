@@ -46,6 +46,7 @@ public class Packet {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "handshake-request" );
 		json.put ( "hash", hash );
+		json.put ( "port", Preferences.Port );
 		json.put ( "clips", this.history.getClips () );
 		return json.toString ();
 	}
@@ -54,6 +55,7 @@ public class Packet {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "handshake-accept" );
 		json.put ( "hash", hash );
+		json.put ( "port", Preferences.Port );
 		json.put ( "clips", this.history.getClips () );
 		return json.toString ();
 	}
