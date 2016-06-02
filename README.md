@@ -9,6 +9,6 @@ About menu
 Disconnect option
 Blacklist option for rejection?
 "ant app" doesn't work, fix it
-
+settings.json and clips.json should be saved OS independent, not CD
 
 COMMENT!!!

@@ -270,7 +270,7 @@ public class MenuTray implements ActionListener {
 			// Handle the clear action
 			case "Local":
 				// Ask user if they are sure they want to clear
-				if ( UserInterface.confirmClear () ) {
+				if ( UserInterface.confirmLocalClear () ) {
 					// Clear the history and update the menu items
 					this.history.clear ();
 					this.update ( this.history.export () );
@@ -278,12 +278,12 @@ public class MenuTray implements ActionListener {
 				break;
 			case "Network":
 				// Ask user if they are sure they want to clear
-				if ( UserInterface.confirmPropagateClear () ) {
+				if ( UserInterface.confirmNetworkClear () ) {
 					// Clear the history and update the menu items
 					this.history.clear ();
 					this.update ( this.history.export () );
 					// Send the packet to all connections
-					Server.sendAll ( this.packet.propagateClear () );
+					Server.sendAll ( this.packet.networkClear () );
 				}
 				break;
 			// Handle the connect peer action

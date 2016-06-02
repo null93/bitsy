@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="CloudClip" default="default" basedir="."> 
-	<property environment="env" />
 	<taskdef name="bundleapp" classname="com.oracle.appbundler.AppBundlerTask" classpath="lib/appbundler-1.0.jar" />
-
 	<path id="classpath">
 		<fileset dir="lib">
 			<include name="json-simple.jar" />
@@ -52,7 +50,7 @@
 		</java>
 	</target>
 
-	<target name="jar">
+	<target name="jar" depends="build">
 		<mkdir dir="build/jar"/>
 	    <copy todir="src/io/raffi/CloudClip">
 	        <fileset dir="design">
@@ -73,15 +71,18 @@
 		</delete>
 	</target>
 
-	<target name="app">
+	<target name="app" depends="jar">
 		<mkdir dir="dist"/>
-		<runtime dir="/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home" />
-		<bundleapp outputdirectory="dist" name="CloudClip" displayname="CloudClip" identifier="CloudClip" icon="design/Icon.icns" mainclassname="io.raffi.CloudClip.CloudClip" >
-			<classpath file="dist/CloudClip.jar" />
+		<bundleapp
+			outputdirectory="dist"
+			name="CloudClip"
+			displayname="CloudClip"
+			identifier="CloudClip"
+			icon="design/Icon.icns"
+			mainclassname="io.raffi.CloudClip.CloudClip">
+			<classpath file="build/jar/CloudClip.jar" />
 		</bundleapp>
+		<copy file="src/Info.plist" todir="dist/CloudClip.app/Contents" overwrite="true"/>
 	</target>
-
-
-
 
 </project>
