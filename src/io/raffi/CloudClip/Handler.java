@@ -65,6 +65,11 @@ public class Handler {
 						this.preferences.addRequest ( this.address, port, hash );
 						this.preferences.addPeer ( hash );
 					}
+					// Otherwise, update the address and port, in case we changed the port
+					else {
+						// Update the address and port
+						this.preferences.updatePeer ( this.address, port, hash );
+					}
 					// Send the peer your information
 					this.connection.send ( this.packet.acceptHandshake () );
 					// Update the menu tray

@@ -34,7 +34,7 @@ public class Preferences extends JFrame {
 
 	protected static String IconPath = "Mac.Icon.png";
 
-	protected static int Port = 10009;
+	protected static int Port = 42423;
 
 	protected static int MaxNumberOfClips = 50;
 
@@ -194,6 +194,25 @@ public class Preferences extends JFrame {
 			}
 			// Increment the counter variable
 			index++;
+		}
+	}
+
+	public void updatePeer ( String address, int port, String hash ) {
+		// Get the contents of the peers array
+		JSONArray peers = ( JSONArray ) this.contents.get ( "peers" );
+		// Loop through all the peers
+		for ( Object peerObject : peers ) {
+			// Cast as a JSON object
+			JSONObject peer = ( JSONObject ) peerObject;
+			// Check to see if the hash matches
+			if ( peer.get ( "hash" ).toString ().equals ( hash ) ) {
+				// Update the contents for the peer
+				peer.put ( "address", address );
+				peer.put ( "port", port );
+				this.contents.put ( "peers", peers );
+				this.save ();
+				break;
+			}
 		}
 	}
 

@@ -249,7 +249,9 @@ public class MenuTray implements ActionListener {
 			for ( Object peerObject : peers ) {
 				// Add the item to the menu
 				JSONObject peer = ( JSONObject ) peerObject;
-				MenuItem peerItem = new MenuItem ( peer.get ( "address" ).toString () );
+				String address = peer.get ( "address" ).toString ();
+				String port = peer.get ( "port" ).toString ();
+				MenuItem peerItem = new MenuItem ( address + ":" + port );
 				peerItem.setActionCommand ( peer.get ( "hash" ).toString () );
 				peerItem.addActionListener ( this.disconnectListener );
 				disconnect.add ( peerItem );
