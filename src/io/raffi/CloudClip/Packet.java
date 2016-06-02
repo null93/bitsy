@@ -71,4 +71,10 @@ public class Packet {
 		return json.toString ();
 	}
 
+	public String propagateClear () {
+		JSONObject json = new JSONObject ();
+		json.put ( "type", "clear" );
+		return json.toString ();
+	}
+
 }

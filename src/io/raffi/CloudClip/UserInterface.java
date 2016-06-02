@@ -29,7 +29,27 @@ public class UserInterface {
 	public static Boolean confirmClear () {
 		// Initialize the message string
 		String message = "Would you like to clear the clipboard?  Please note\nthat it will not b" +
-		"e propagated to your synced clipboards";
+		"e propagated to your synced clipboards.";
+		// Initialize and display a new confirmation dialog window
+		int result = JOptionPane.showConfirmDialog (
+			null,
+			message,
+			"CloudClip - Clear Clipboard Confirmation",
+			JOptionPane.YES_NO_OPTION,
+			JOptionPane.PLAIN_MESSAGE
+		);
+		// Check to see if the yes option was clicked
+		if ( result == JOptionPane.YES_OPTION ) {
+			// Return true since yes was clicked
+			return true;
+		}
+		// By default return false
+		return false;
+	}
+
+	public static Boolean confirmPropagateClear () {
+		// Initialize the message string
+		String message = "Would you like to clear across all currently\nconnected clipboards?";
 		// Initialize and display a new confirmation dialog window
 		int result = JOptionPane.showConfirmDialog (
 			null,

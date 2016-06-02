@@ -102,6 +102,15 @@ public class Handler {
 					}
 				}
 				break;
+			// This is the case that handles clearing the clipboard across the peer network
+			case "clear":
+				// First check to see that this peer is part of our peers list
+				if ( this.preferences.isPeer ( hash ) ) {
+					// Clear the history and update the menu items
+					this.history.clear ();
+					this.menu.update ( this.history.export () );
+				}
+				break;
 		}
 	}
 

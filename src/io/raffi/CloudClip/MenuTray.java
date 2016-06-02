@@ -61,6 +61,11 @@ public class MenuTray implements ActionListener {
 	 */
 	private LinkedHashMap <String, MenuItem> clips;
 
+
+
+	private Packet packet;
+
+
 	/**
 	 * This constructor initializes the tray icon in the system tray and populates it with the
 	 * initial data.  It also throws a custom exception if we fail to add to system tray or if the
@@ -68,9 +73,10 @@ public class MenuTray implements ActionListener {
 	 * @throws  CloudClipException
 	 */
 	private MenuTray () {
-		// Save the history object and the preferences object
+		// Save the history object, preferences object, and the packet object
 		this.history = History.getInstance ();
 		this.preferences = Preferences.getInstance ();
+		this.packet = Packet.getInstance ();
 		// Get the icon resource path
 		String url = Preferences.IconPath;
 		// Set the icon
@@ -147,7 +153,7 @@ public class MenuTray implements ActionListener {
 	 * @param   ArrayList <String>      items       List of clips in manager to display, in order
 	 * @return  void
 	 */
-	public void update ( ArrayList <String> items ) {
+	public synchronized void update ( ArrayList <String> items ) {
 		// Clear the clips array
 		this.clips.clear ();
 		// Loop through all the exported items
@@ -183,7 +189,7 @@ public class MenuTray implements ActionListener {
 			this.popup.add ( pair.getValue () );
 			pair.getValue ().setActionCommand ( pair.getKey () );
 			// Remove the iterator
-			iterator.remove ();
+			//iterator.remove ();
 		}
 		// Check to see if there is any clips
 		if ( items.size () == 0 ) {
@@ -197,6 +203,7 @@ public class MenuTray implements ActionListener {
 		MenuItem about = new MenuItem ( "About" );
 		MenuItem preferences = new MenuItem ( "Preferences", new MenuShortcut ( KeyEvent.VK_P ) );
 		MenuItem connect = new MenuItem ( "Connect", new MenuShortcut ( KeyEvent.VK_C ) );
+		MenuItem propagateClear = new MenuItem ( "Propagate Clear" );
 		MenuItem clear = new MenuItem ( "Clear" );
 		// Add the options to the popup menu
 		this.popup.addSeparator ();
@@ -218,6 +225,7 @@ public class MenuTray implements ActionListener {
 			this.popup.add ( disconnect );
 		}
 		// Add the rest of the menu items
+		this.popup.add ( propagateClear );
 		this.popup.add ( clear );
 		this.popup.addSeparator ();
 		this.popup.add ( preferences );
@@ -231,6 +239,7 @@ public class MenuTray implements ActionListener {
 		preferences.addActionListener ( this );
 		connect.addActionListener ( this );
 		clear.addActionListener ( this );
+		propagateClear.addActionListener ( this );
 	}
 
 	/**
@@ -262,6 +271,16 @@ public class MenuTray implements ActionListener {
 					// Clear the history and update the menu items
 					this.history.clear ();
 					this.update ( this.history.export () );
+				}
+				break;
+			case "Propagate Clear":
+				// Ask user if they are sure they want to clear
+				if ( UserInterface.confirmPropagateClear () ) {
+					// Clear the history and update the menu items
+					this.history.clear ();
+					this.update ( this.history.export () );
+					// Send the packet to all connections
+					Server.sendAll ( this.packet.propagateClear () );
 				}
 				break;
 			// Handle the connect peer action
