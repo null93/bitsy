@@ -80,7 +80,6 @@ public class UserInterface {
 		int result = JOptionPane.showOptionDialog ( null, panel, "Peer Connection Request", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null );
 		if ( result == JOptionPane.YES_OPTION ) {
 			if ( UserInterface.validateIP ( address.getText () ) && ( UserInterface.validatePort ( port.getText () ) ) ) {
-				System.out.println ( "User input is valid" );
 				return new Tuple ( address.getText (), Integer.parseInt ( port.getText () ) );
 			}
 		}

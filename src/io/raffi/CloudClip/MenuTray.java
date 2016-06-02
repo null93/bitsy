@@ -203,8 +203,9 @@ public class MenuTray implements ActionListener {
 		MenuItem about = new MenuItem ( "About" );
 		MenuItem preferences = new MenuItem ( "Preferences", new MenuShortcut ( KeyEvent.VK_P ) );
 		MenuItem connect = new MenuItem ( "Connect", new MenuShortcut ( KeyEvent.VK_C ) );
-		MenuItem propagateClear = new MenuItem ( "Propagate Clear" );
-		MenuItem clear = new MenuItem ( "Clear" );
+		MenuItem networkClear = new MenuItem ( "Network" );
+		MenuItem localClear = new MenuItem ( "Local" );
+		Menu clear = new Menu ( "Clear" );
 		// Add the options to the popup menu
 		this.popup.addSeparator ();
 		// Get the number of peers from settings
@@ -224,8 +225,10 @@ public class MenuTray implements ActionListener {
 			// Add the disconnect menu into the popup menu
 			this.popup.add ( disconnect );
 		}
+		// Add the clear options to clear menu
+		clear.add ( localClear );
+		clear.add ( networkClear );
 		// Add the rest of the menu items
-		this.popup.add ( propagateClear );
 		this.popup.add ( clear );
 		this.popup.addSeparator ();
 		this.popup.add ( preferences );
@@ -238,8 +241,8 @@ public class MenuTray implements ActionListener {
 		about.addActionListener ( this );
 		preferences.addActionListener ( this );
 		connect.addActionListener ( this );
-		clear.addActionListener ( this );
-		propagateClear.addActionListener ( this );
+		localClear.addActionListener ( this );
+		networkClear.addActionListener ( this );
 	}
 
 	/**
@@ -265,7 +268,7 @@ public class MenuTray implements ActionListener {
 				catch ( Exception exception ) {}
 				break;
 			// Handle the clear action
-			case "Clear":
+			case "Local":
 				// Ask user if they are sure they want to clear
 				if ( UserInterface.confirmClear () ) {
 					// Clear the history and update the menu items
@@ -273,7 +276,7 @@ public class MenuTray implements ActionListener {
 					this.update ( this.history.export () );
 				}
 				break;
-			case "Propagate Clear":
+			case "Network":
 				// Ask user if they are sure they want to clear
 				if ( UserInterface.confirmPropagateClear () ) {
 					// Clear the history and update the menu items
@@ -289,25 +292,31 @@ public class MenuTray implements ActionListener {
 				Tuple peer = UserInterface.peerConnectionInitialization ();
 				// If the information was passed and was valid
 				if ( peer != null ) {
+					// Initialize the hash variable so it was in this scope
+					String hash = null;
 					// Attempt to connect to peer
 					try {
 						// Get the server instance
 						Server server = Server.getInstance ();
-						String hash = server.connect (
+						// Connect and get that hash
+						hash = server.connect (
 							peer.first ().toString (),
 							( int ) peer.second ()
 						);
-						this.preferences.addRequest (
-							peer.first ().toString (),
-							( int ) peer.second (),
-							hash
-						);
 					}
-					// Catch any errors
-					catch ( Exception exception ) {
-						// Print out failure
-						System.out.println ( "Failed to connect to peer" );
+					// Catch any errors and ignore them
+					catch ( Exception exception ) {}
+					// Check to see if the hash is null and was uninitialized
+					if ( hash == null ) {
+						// Create a new hash
+						hash = Server.hash ( 32 );
 					}
+					// Add this request to the requests list
+					this.preferences.addRequest (
+						peer.first ().toString (),
+						( int ) peer.second (),
+						hash
+					);
 				}
 				break;
 			// Handle the about action
