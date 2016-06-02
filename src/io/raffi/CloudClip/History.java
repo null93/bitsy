@@ -101,6 +101,8 @@ public class History {
 		// Copy the top element into clipboard
 		JSONObject clip = ( JSONObject ) local.get ( 0 );
 		ClipboardManager.write ( clip.get ( "clip" ).toString () );
+		// Sort the clipboard after
+		this.sort ();
 	}
 
 	/**

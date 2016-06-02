@@ -100,6 +100,10 @@ public class Handler {
 			case "handshake-reject":
 				// Remove the connection from the requests list internally
 				this.preferences.removeRequest ( hash );
+				// Remove the connection from the peer in case peer removed us while we were disconnected
+				this.preferences.removePeer ( hash );
+				// Update the menu to potentially reflect the removal of the peer
+				this.menu.update ( this.history.export () );
 				// Close the connection with peer
 				this.connection.close ();
 				break;
