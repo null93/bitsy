@@ -42,28 +42,25 @@ public class Packet {
 		return Packet.instance;
 	}
 
-	public String sendHandshake ( String hash ) {
+	public String sendHandshake () {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "handshake-request" );
-		json.put ( "hash", hash );
 		json.put ( "port", Preferences.Port );
 		json.put ( "clips", this.history.getClips () );
 		return json.toString ();
 	}
 
-	public String acceptHandshake ( String hash ) {
+	public String acceptHandshake () {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "handshake-accept" );
-		json.put ( "hash", hash );
 		json.put ( "port", Preferences.Port );
 		json.put ( "clips", this.history.getClips () );
 		return json.toString ();
 	}
 
-	public String rejectHandshake ( String hash ) {
+	public String rejectHandshake () {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "handshake-reject" );
-		json.put ( "hash", hash );
 		return json.toString ();
 	}
 

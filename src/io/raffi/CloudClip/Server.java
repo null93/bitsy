@@ -92,7 +92,7 @@ public class Server {
 			// Send a connection request to the server
 			Packet packet = Packet.getInstance ();
 			connection.hash = hash;
-			connection.send ( packet.sendHandshake ( connection.hash ) );
+			connection.send ( packet.sendHandshake () );
 			return connection.hash;
 		}
 		// Catch any exceptions that are thrown and return null as hash

@@ -6,7 +6,10 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
+@SuppressWarnings ( { "serial", "unchecked" } )
 public class Connection implements Runnable {
 
 	private Socket socket;
@@ -40,9 +43,13 @@ public class Connection implements Runnable {
 	}
 
 	public void send ( String data ) {
+		// Parse the packet
+		JSONObject json = Packet.parse ( data );
+		// Append the connection hash to it
+		json.put ( "hash", this.hash );
 		// Flush the buffer and print to it
 		this.outgoing.flush ();
-		this.outgoing.println ( data );
+		this.outgoing.println ( json.toString () );
 	}
 
 	public void close () {
