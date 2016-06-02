@@ -75,6 +75,11 @@ public class Server {
 	}
 	
 	public synchronized String connect ( String outgoingAddress, int outgoingPort ) {
+		// Pass to main function, but create hash on the fly
+		return this.connect ( outgoingAddress, outgoingPort, Server.hash ( 32 ) );
+	}
+
+	public synchronized String connect ( String outgoingAddress, int outgoingPort, String hash ) {
 		// Try to connect to a peer connection
 		try {
 			// Create a new socket
@@ -86,7 +91,7 @@ public class Server {
 			Server.peers.add ( connection );
 			// Send a connection request to the server
 			Packet packet = Packet.getInstance ();
-			connection.hash = Server.hash ( 32 );
+			connection.hash = hash;
 			connection.send ( packet.sendHandshake ( connection.hash ) );
 			return connection.hash;
 		}
@@ -102,11 +107,12 @@ public class Server {
 		for ( Object peerObject : peers ) {
 			// Cast the peer to be of JSON Object
 			JSONObject peer = ( JSONObject ) peerObject;
-			// Get the IP address and the port number of peer
+			// Get the IP address and the port number of peer and the connection hash
+			String hash = peer.get ( "hash" ).toString ();
 			String address = peer.get ( "address" ).toString ();
 			int port = Integer.parseInt ( peer.get ( "port" ).toString () );
 			// Attempt to connect to them
-			this.connect ( address, port );
+			this.connect ( address, port, hash );
 		}
 	}
 
