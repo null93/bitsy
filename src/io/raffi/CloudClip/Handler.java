@@ -52,6 +52,8 @@ public class Handler {
 	}
 
 	private void assign ( JSONObject request ) {
+		// Extract the hash from the packet, hash should always be included
+		String hash = request.get ( "hash" ).toString ();
 		// Switch between the request types
 		switch ( request.get ( "type" ).toString () ) {
 			// This handles the initial request to be added to external peer list
@@ -60,8 +62,6 @@ public class Handler {
 				int port = Integer.parseInt ( request.get ( "port" ).toString () );
 				// Check to see if the user wants to connect with this peer
 				if ( UserInterface.peerConnectionAuthorization ( this.address, port ) ) {
-					// Save the connection hash id and assign it to the connection
-					String hash = request.get ( "hash" ).toString ();
 					this.connection.hash = hash;
 					// Add the peer locally to settings file
 					this.preferences.addRequest ( this.address, port, hash );
@@ -69,19 +69,22 @@ public class Handler {
 					// Send the peer your information
 					this.connection.send ( this.packet.acceptHandshake ( hash ) );
 				}
+				// Otherwise send a rejection packet so everything was clean
+				else {
+					// Sent the peer the rejection packet
+					this.connection.send ( this.packet.rejectHandshake ( hash ) );
+				}
 				break;
 			// This handles the the successful response to connect to peer
 			case "handshake-accept":
-				// Save the connection hash id and save the hash
-				String hash = request.get ( "hash" ).toString ();
 				// Add this user to the peers list
 				this.preferences.addPeer ( hash );
 				// Update the menu to be able to disconnect
 				this.menu.update ( this.history.export () );
 				break;
 			case "handshake-reject":
-
-
+				// Remove the connection from the requests list internally
+				this.preferences.removeRequest ( hash );
 				break;
 			// This handles when a clip is sent to us
 			case "clip":

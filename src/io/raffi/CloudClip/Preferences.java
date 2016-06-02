@@ -28,7 +28,7 @@ public class Preferences extends JFrame {
 
 	protected static String IconPath = "Mac.Icon.png";
 
-	protected static int Port = 10007;
+	protected static int Port = 10009;
 
 	protected static int MaxNumberOfClips = 50;
 
@@ -111,27 +111,49 @@ public class Preferences extends JFrame {
 		this.save ();
 	}
 
+	public void removeRequest ( String hash ) {
+		// Get the contents of the requests array
+		JSONArray requests = ( JSONArray ) this.contents.get ( "requests" );
+		// Initialize the loop variable
+		int index = 0;
+		// Loop through all the requests
+		for ( Object requestObject : requests ) {
+			// Cast as a JSON object
+			JSONObject request = ( JSONObject ) requestObject;
+			// Check to see if the hash matches
+			if ( request.get ( "hash" ).toString ().equals ( hash ) ) {
+				// Remove the object from list, save the object back, and save into file
+				requests.remove ( index );
+				this.contents.put ( "requests", requests );
+				this.save ();
+				break;
+			}
+			// Increment the index variable
+			index++;
+		}
+	}
+
 	public void addPeer ( String hash ) {
 		// Get the peers list and the requests list
 		JSONArray peers = ( JSONArray ) this.contents.get ( "peers" );
 		JSONArray requests = ( JSONArray ) this.contents.get ( "requests" );
 		// Initialize the counter variable
-		int i = 0;
+		int index = 0;
 		// Loop through all the requests
-		for ( Object requestObject : ( JSONArray ) this.contents.get ( "requests" ) ) {
+		for ( Object requestObject : requests ) {
 			JSONObject request = ( JSONObject ) requestObject;
 			// If the current request matches the passed one
 			if ( request.get ( "hash" ).toString ().equals ( hash ) ) {
 				// Add the request to be a peer and remove from the requests list
 				peers.add ( request );
-				requests.remove ( i );
+				requests.remove ( index );
 				this.contents.put ( "peers", peers );
 				this.contents.put ( "requests", requests );
 				this.save ();
 				break;
 			}
 			// Increment the counter variable
-			i++;
+			index++;
 		}
 	}
 
