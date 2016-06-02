@@ -165,7 +165,7 @@ public class ClipboardManager extends Thread {
 			// Get the current string saved in the clipboard
 			String contents = ClipboardManager.read ();
 			// Check to see that the contents are not null and does not match last saved value
-			if ( !this.current.equals ( contents ) && contents != null ) {
+			if ( !this.current.equals ( contents ) && contents != null && !contents.trim ().isEmpty () ) {
 				// Save the current string in the clipboard into the last seen value
 				this.current = ClipboardManager.read ().toString ();
 				// Save this value using the manager

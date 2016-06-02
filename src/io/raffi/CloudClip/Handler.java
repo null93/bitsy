@@ -96,8 +96,17 @@ public class Handler {
 					String data = request.get ( "data" ).toString ();
 					// Check to see that it is not a repeat
 					if ( !ClipboardManager.read ().equals ( data ) && data != null ) {
-						// Write the data to the clipboard and update the menu
-						ClipboardManager.write ( data );
+						// Check to see how we should sync the clip
+						if ( Preferences.PropagateAllPeers ) {
+							// Mock a copy of clip for all peers to get
+							ClipboardManager.write ( data );
+						}
+						// Otherwise, just sync to our history
+						else {
+							// Set the item to be in our history only
+							this.history.set ( data );
+						}
+						// Update the menu
 						this.menu.update ( this.history.export () );
 					}
 				}

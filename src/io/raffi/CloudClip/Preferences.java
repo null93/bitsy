@@ -36,6 +36,8 @@ public class Preferences extends JFrame {
 
 	protected static Boolean Sync = true;
 
+	protected static Boolean PropagateAllPeers = false;
+
 	private Preferences () {
 		// Initialize the JFrame
 		super ( "CloudClip Preferences" );
