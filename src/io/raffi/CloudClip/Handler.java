@@ -124,6 +124,16 @@ public class Handler {
 					this.menu.update ( this.history.export () );
 				}
 				break;
+			// This case disconnects a peer connection
+			case "disconnect":
+				// First check to see that this peer is part of our peers list
+				if ( this.preferences.isPeer ( hash ) ) {
+					// Remove the peer from the list
+					this.preferences.removePeer ( hash );
+					// Close this connection
+					this.connection.close ();
+				}
+				break;
 		}
 	}
 

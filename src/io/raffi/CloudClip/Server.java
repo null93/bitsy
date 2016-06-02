@@ -141,6 +141,17 @@ public class Server {
 		}
 	}
 
+	public synchronized static void sendTo ( String hash, String data ) {
+		// Iterate through all of the peer connections
+		for ( Connection peer : Server.peers ) {
+			// Check to see if the connection is of the target hash
+			if ( peer.hash.equals ( hash ) ) {
+				// Send this peer the data
+				peer.send ( data );
+			}
+		}
+	}
+
 	public synchronized static void sendAllBut ( Connection exclude, String data ) {
 		// Iterate through all of the peer connections
 		for ( Connection peer : Server.peers ) {
@@ -159,6 +170,17 @@ public class Server {
 			Server.server.close ();
 		}
 		catch ( Exception exception ) {}
+	}
+
+	public synchronized static void close ( String hash ) {
+		// Iterate through all of the peer connections
+		for ( Connection peer : Server.peers ) {
+			// Check to see if the connection is of the target hash
+			if ( peer.hash.equals ( hash ) ) {
+				// Close this peer connection
+				peer.close ();
+			}
+		}
 	}
 
 	public static String hash ( int length ) {

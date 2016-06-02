@@ -61,7 +61,9 @@ public class MenuTray implements ActionListener {
 	 */
 	private LinkedHashMap <String, MenuItem> clips;
 
+	private ActionListener clipListener;
 
+	private ActionListener disconnectListener;
 
 	private Packet packet;
 
@@ -77,6 +79,40 @@ public class MenuTray implements ActionListener {
 		this.history = History.getInstance ();
 		this.preferences = Preferences.getInstance ();
 		this.packet = Packet.getInstance ();
+		// Initialize and define the clip listener
+		this.clipListener = new ActionListener () {
+    		public void actionPerformed ( ActionEvent event ) {
+    			// Extract the target menu item
+				MenuItem target = ( MenuItem ) event.getSource ();
+    			// Copy the contents to the clipboard
+				String value = MenuTray.getInstance ().extract ( target );
+				ClipboardManager.write ( target.getActionCommand () );
+			}
+		};
+		// Initialize and define the disconnect listener
+		this.disconnectListener = new ActionListener () {
+			public void actionPerformed ( ActionEvent event ) {
+    			// Extract the target menu item, and get the hash string
+				MenuItem target = ( MenuItem ) event.getSource ();
+				String hash = target.getActionCommand ();
+				// Get the preferences, menu tray, history, and packet instance
+				Preferences preferences = Preferences.getInstance ();
+				Packet packet = Packet.getInstance ();
+				MenuTray menu = MenuTray.getInstance ();
+				History history = History.getInstance ();
+				// Ask user if they really want to disconnect
+				if ( UserInterface.confirmDisconnectPeerConnection () ) {
+					// Remove the peer from the list
+					preferences.removePeer ( hash );
+					// Update the menu
+					menu.update ( history.export () );
+					// Send disconnect packet to peer
+					Server.sendTo ( hash, packet.disconnect () );
+					// Close the connection
+					Server.close ( hash );
+				}
+			}
+		};
 		// Get the icon resource path
 		String url = Preferences.IconPath;
 		// Set the icon
@@ -176,7 +212,7 @@ public class MenuTray implements ActionListener {
 			// Put it into the menu
 			this.clips.put ( item, menuItem );
 			// Add the action listener
-			menuItem.addActionListener ( this );
+			menuItem.addActionListener ( this.clipListener );
 		}
 		// Remove all items from the popup menu
 		this.popup.removeAll ();
@@ -201,9 +237,6 @@ public class MenuTray implements ActionListener {
 		MenuItem about = new MenuItem ( "About" );
 		MenuItem preferences = new MenuItem ( "Preferences", new MenuShortcut ( KeyEvent.VK_P ) );
 		MenuItem connect = new MenuItem ( "Connect", new MenuShortcut ( KeyEvent.VK_C ) );
-		MenuItem networkClear = new MenuItem ( "Network" );
-		MenuItem localClear = new MenuItem ( "Local" );
-		Menu clear = new Menu ( "Clear" );
 		// Add the options to the popup menu
 		this.popup.addSeparator ();
 		// Get the number of peers from settings
@@ -217,17 +250,30 @@ public class MenuTray implements ActionListener {
 				// Add the item to the menu
 				JSONObject peer = ( JSONObject ) peerObject;
 				MenuItem peerItem = new MenuItem ( peer.get ( "address" ).toString () );
-				peerItem.addActionListener ( this );
+				peerItem.setActionCommand ( peer.get ( "hash" ).toString () );
+				peerItem.addActionListener ( this.disconnectListener );
 				disconnect.add ( peerItem );
 			}
 			// Add the disconnect menu into the popup menu
 			this.popup.add ( disconnect );
+			// Initialize the two options we have fro clearing
+			MenuItem networkClear = new MenuItem ( "Network" );
+			MenuItem localClear = new MenuItem ( "Local" );
+			Menu clear = new Menu ( "Clear" );
+			// Add the clear options to clear menu and bind listeners to them
+			clear.add ( localClear );
+			clear.add ( networkClear );
+			localClear.addActionListener ( this );
+			networkClear.addActionListener ( this );
+			// Append the menu to the popup menu
+			this.popup.add ( clear );
 		}
-		// Add the clear options to clear menu
-		clear.add ( localClear );
-		clear.add ( networkClear );
+		else {
+			MenuItem clear = new MenuItem ( "Clear" );
+			this.popup.add ( clear );
+			clear.addActionListener ( this );
+		}
 		// Add the rest of the menu items
-		this.popup.add ( clear );
 		this.popup.addSeparator ();
 		this.popup.add ( preferences );
 		this.popup.add ( connect );
@@ -239,8 +285,6 @@ public class MenuTray implements ActionListener {
 		about.addActionListener ( this );
 		preferences.addActionListener ( this );
 		connect.addActionListener ( this );
-		localClear.addActionListener ( this );
-		networkClear.addActionListener ( this );
 	}
 
 	/**
@@ -257,7 +301,7 @@ public class MenuTray implements ActionListener {
 			// Handle the quit action
 			case "Quit":
 				// Close the socket server and all peer connections
-				//Server.close ();
+				Server.close ();
 				// Exit application
 				System.exit ( 0 );
 				break;
@@ -266,6 +310,7 @@ public class MenuTray implements ActionListener {
 				Preferences.getInstance ().setVisible ( true );
 				break;
 			// Handle the clear action
+			case "Clear":
 			case "Local":
 				// Ask user if they are sure they want to clear
 				if ( UserInterface.confirmLocalClear () ) {
@@ -321,11 +366,6 @@ public class MenuTray implements ActionListener {
 			case "About":
 				System.out.println ( "Displaying about menu" );
 				break;
-			// In this case we clicked a clip item
-			default:
-				// Copy the contents to the clipboard
-				String value = this.extract ( target );
-				ClipboardManager.write ( target.getActionCommand () );
 		}
 	}
 

@@ -77,4 +77,10 @@ public class Packet {
 		return json.toString ();
 	}
 
+	public String disconnect () {
+		JSONObject json = new JSONObject ();
+		json.put ( "type", "disconnect" );
+		return json.toString ();
+	}
+
 }

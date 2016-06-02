@@ -114,6 +114,25 @@ public class UserInterface {
 		// By default return false
 		return false;
 	}
+	
+	public static Boolean confirmDisconnectPeerConnection () {
+		// Initialize and display a new confirmation dialog window
+		int result = JOptionPane.showConfirmDialog (
+			UserInterface.dialog (),
+			"Are you sure you want to disconnect from this peer?",
+			"CloudClip - Peer Disconnect Confirmation",
+			JOptionPane.YES_NO_OPTION,
+			JOptionPane.PLAIN_MESSAGE
+		);
+		// Check to see if the yes option was clicked
+		if ( result == JOptionPane.YES_OPTION ) {
+			// Return true since yes was clicked
+			return true;
+		}
+		// By default return false
+		return false;
+	}
+
 
 	private static Boolean validateIP ( String address ) {
 		Pattern IP_V4 = Pattern.compile (

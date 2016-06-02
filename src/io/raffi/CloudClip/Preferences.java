@@ -151,6 +151,28 @@ public class Preferences extends JFrame {
 		}
 	}
 
+	public void removePeer ( String hash ) {
+		// Get the contents of the peers array
+		JSONArray peers = ( JSONArray ) this.contents.get ( "peers" );
+		// Initialize the loop variable
+		int index = 0;
+		// Loop through all the peers
+		for ( Object peerObject : peers ) {
+			// Cast as a JSON object
+			JSONObject peer = ( JSONObject ) peerObject;
+			// Check to see if the hash matches
+			if ( peer.get ( "hash" ).toString ().equals ( hash ) ) {
+				// Remove the object from list, save the object back, and save into file
+				peers.remove ( index );
+				this.contents.put ( "peers", peers );
+				this.save ();
+				break;
+			}
+			// Increment the index variable
+			index++;
+		}
+	}
+
 	public void addPeer ( String hash ) {
 		// Get the peers list and the requests list
 		JSONArray peers = ( JSONArray ) this.contents.get ( "peers" );
