@@ -64,8 +64,6 @@ public class ClipboardManager extends Thread {
 	 * This constructor takes in the history object and the menu object and it saves it internally.
 	 * It also reads the current string in the system clipboard, as well as starts the thread so we
 	 * can poll for changes in the clipboard.
-	 * @param   History         history             Passed instance of the History class to save
-	 * @param   MenuTray        menu                Passed instance of the MenuTray class to save
 	 */
 	private ClipboardManager () {
 		// Get the history and menu instances

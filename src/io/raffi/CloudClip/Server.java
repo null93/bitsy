@@ -151,6 +151,16 @@ public class Server {
 		}
 	}
 
+	public synchronized static void close () {
+		try {
+			for ( Connection peer : Server.peers ) {
+				peer.close ();
+			}
+			Server.server.close ();
+		}
+		catch ( Exception exception ) {}
+	}
+
 	public static String hash ( int length ) {
 		String library = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		String hash = "";

@@ -188,8 +188,6 @@ public class MenuTray implements ActionListener {
 			Entry <String, MenuItem> pair = iterator.next ();
 			this.popup.add ( pair.getValue () );
 			pair.getValue ().setActionCommand ( pair.getKey () );
-			// Remove the iterator
-			//iterator.remove ();
 		}
 		// Check to see if there is any clips
 		if ( items.size () == 0 ) {
@@ -258,14 +256,14 @@ public class MenuTray implements ActionListener {
 		switch ( target.getActionCommand () ) {
 			// Handle the quit action
 			case "Quit":
+				// Close the socket server and all peer connections
+				//Server.close ();
+				// Exit application
 				System.exit ( 0 );
 				break;
 			// Handle the preferences action
 			case "Preferences":
-				try {
-					Preferences.getInstance ().setVisible ( true );
-				}
-				catch ( Exception exception ) {}
+				Preferences.getInstance ().setVisible ( true );
 				break;
 			// Handle the clear action
 			case "Local":

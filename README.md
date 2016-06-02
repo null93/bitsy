@@ -1,6 +1,6 @@
 TODO:
 
-Combine clipboards on connect option
+Combine clipboards on connect option ( acyclically )
 Clear network clipboards acyclically
 Preferences Menu
 Preferences Load from file
@@ -8,7 +8,7 @@ Attach clips handler to be the ClipboardManager instead of MenuTray
 About menu
 Disconnect option
 Blacklist option for rejection?
-"ant app" doesn't work, fix it
 settings.json and clips.json should be saved OS independent, not CD
+Change name? Clippy? Clipster?
 
 COMMENT!!!

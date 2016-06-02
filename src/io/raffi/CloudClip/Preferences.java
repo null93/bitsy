@@ -1,12 +1,18 @@
 package io.raffi.CloudClip;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.WindowConstants;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.JFrame;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import com.bulenkov.iconloader.IconLoader;
 
 @SuppressWarnings ( { "serial", "unchecked" } )
 public class Preferences extends JFrame {
@@ -43,6 +49,14 @@ public class Preferences extends JFrame {
 	private Preferences () {
 		// Initialize the JFrame
 		super ( "CloudClip Preferences" );
+	    setSize(500, 500);
+	    final JPanel panel = new JPanel(new BorderLayout());
+	    getContentPane().add(panel);
+	    JPanel bottom = new JPanel(new BorderLayout());
+	    panel.add(bottom, BorderLayout.CENTER);
+	    JLabel disabledButton = new JLabel(IconLoader.getIcon("example.png"));
+	    bottom.add(disabledButton, BorderLayout.CENTER);
+	    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 		// Get the operating system
 		String os = System.getProperty ( "os.name" );

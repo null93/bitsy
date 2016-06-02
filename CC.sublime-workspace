@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"icon",
+				"iconloader"
+			],
+			[
+				"Men",
+				"Menu"
+			],
+			[
+				"conn",
+				"connection"
+			],
+			[
+				"pee",
+				"peer"
+			],
+			[
+				"ou",
+				"outgoingPort"
+			],
+			[
+				"peer",
+				"peerObject"
+			],
+			[
+				"JOSN",
+				"JSONObject"
+			],
+			[
+				"requ",
+				"requestObject"
+			],
+			[
+				"JSON",
+				"JSONObject"
+			],
+			[
 				"pre",
 				"preferences"
 			],
@@ -32,20 +68,12 @@
 				"ClipboardManager"
 			],
 			[
-				"Men",
-				"MenuTray"
-			],
-			[
 				"Menu",
 				"MenuTray"
 			],
 			[
 				"add",
 				"addActionListener"
-			],
-			[
-				"peer",
-				"peers"
 			],
 			[
 				"hand",
@@ -62,10 +90,6 @@
 			[
 				"hi",
 				"history"
-			],
-			[
-				"requ",
-				"request"
 			],
 			[
 				"IP",
@@ -114,10 +138,6 @@
 			[
 				"E",
 				"ExecuteScalar"
-			],
-			[
-				"ou",
-				"outgoingPort"
 			],
 			[
 				"out",
@@ -210,10 +230,6 @@
 			[
 				"A",
 				"ArrayList"
-			],
-			[
-				"JSON",
-				"JSONObject"
 			],
 			[
 				"excep",
@@ -498,22 +514,6 @@
 			[
 				"Displ",
 				"DisplayPanel"
-			],
-			[
-				"number",
-				"bufferNumber"
-			],
-			[
-				"running",
-				"running_procs"
-			],
-			[
-				"procfs_",
-				"procfs_i_func"
-			],
-			[
-				"populate",
-				"populate_meminfo"
 			]
 		]
 	},
@@ -827,33 +827,33 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip"
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip"
 	],
 	"file_history":
 	[
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/README.md",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Preferences.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/ClipboardManager.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/build.xml",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/Info.plist",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/dist/CloudClip.app/Contents/Info.plist",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/UserInterface.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Packet.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Preferences.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/MenuTray.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/ClipboardManager.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Handler.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Server.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Connection.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/CloudClip.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Server.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Handler.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Tuple.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/History.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/CloudClipException.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/CloudClip.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Graphic/TextField.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Graphic/Button.java",
 		"/Users/Raffi/.bash_profile",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/build.xml",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/CloudClip.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/packets.json",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/dist/CloudClip.app/Contents/Resources/en.lproj/Localizable.strings",
-		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/settings.json",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/.gitignore",
 		"/Users/Raffi/Google Drive/My Documents/Github/jQuery.Minimal-Form/style.css",
@@ -958,10 +958,7 @@
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-bn995_/Database.php",
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-b50d7i/api.php",
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-84jduz/Process.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-6zwatf/admin-status.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-s2vsad/admin-status.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-fwl1vu/javascript.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-i6v3y8/admin-commands.tpl"
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-6zwatf/admin-status.tpl"
 	],
 	"find":
 	{
@@ -985,6 +982,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"json-simple",
+			"User input is valid",
+			"hash",
+			"this.connection",
+			"connect",
+			"this.port",
+			"Loca",
 			"equal ",
 			"create",
 			"try {",
@@ -1105,14 +1109,7 @@
 			"ok>",
 			"wrong password",
 			"Process::Fail",
-			"Process:Fail",
-			"Process::Failed",
-			"header (",
-			"( object )",
-			"origin:",
-			"veid",
-			"state",
-			"error"
+			"Process:Fail"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1233,7 +1230,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 151.0,
+	"side_bar_width": 300.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
