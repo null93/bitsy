@@ -130,6 +130,8 @@ public class Handler {
 				if ( this.preferences.isPeer ( hash ) ) {
 					// Remove the peer from the list
 					this.preferences.removePeer ( hash );
+					// Update the menu tray
+					this.menu.update ( this.history.export () );
 					// Close this connection
 					this.connection.close ();
 				}
