@@ -38,6 +38,8 @@ public class Preferences extends JFrame {
 
 	protected static Boolean PropagateAllPeers = false;
 
+	protected static Boolean MergeClipboardsOnConnect = true;
+
 	private Preferences () {
 		// Initialize the JFrame
 		super ( "CloudClip Preferences" );
@@ -161,6 +163,10 @@ public class Preferences extends JFrame {
 
 	public JSONArray getPeers () {
 		return ( JSONArray ) this.contents.get ( "peers" );
+	}
+
+	public JSONArray getRequests () {
+		return ( JSONArray ) this.contents.get ( "requests" );
 	}
 
 	public Boolean isPeer ( String hash ) {

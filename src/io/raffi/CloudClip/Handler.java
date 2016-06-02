@@ -72,6 +72,8 @@ public class Handler {
 				else {
 					// Sent the peer the rejection packet
 					this.connection.send ( this.packet.rejectHandshake () );
+					// Close the connection with the peer
+					this.connection.close ();
 				}
 				break;
 			// This handles the the successful response to connect to peer
@@ -87,6 +89,8 @@ public class Handler {
 			case "handshake-reject":
 				// Remove the connection from the requests list internally
 				this.preferences.removeRequest ( hash );
+				// Close the connection with peer
+				this.connection.close ();
 				break;
 			// This handles when a clip is sent to us
 			case "clip":

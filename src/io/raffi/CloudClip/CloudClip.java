@@ -11,6 +11,7 @@ public class CloudClip {
 		ClipboardManager clipboard = ClipboardManager.getInstance ();
 		// Connect to established peers
 		server.connectToPeers ( settings.getPeers () );
+		server.connectToRequests ( settings.getRequests () );
 	}
 
 }

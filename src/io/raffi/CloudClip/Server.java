@@ -116,6 +116,20 @@ public class Server {
 		}
 	}
 
+	public void connectToRequests ( JSONArray requests ) {
+		// Loop through all the requests
+		for ( Object requestObject : requests ) {
+			// Cast the request to be of JSON Object
+			JSONObject request = ( JSONObject ) requestObject;
+			// Get the IP address and the port number of request and the connection hash
+			String hash = request.get ( "hash" ).toString ();
+			String address = request.get ( "address" ).toString ();
+			int port = Integer.parseInt ( request.get ( "port" ).toString () );
+			// Attempt to connect to them
+			this.connect ( address, port, hash );
+		}
+	}
+
 	public synchronized static void sendAll ( String data ) {
 		// Iterate through all of the peer connections
 		for ( Connection peer : Server.peers ) {
