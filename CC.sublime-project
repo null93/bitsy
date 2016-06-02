@@ -3,17 +3,14 @@
 	[
 		{
 			"path": "."
-		},
-		{
-			"path": "/Users/Raffi/Google Drive/School/UIC/CS342/Projects/PROJ05/Ninja-Chat-Application/source/Graphic"
 		}
 	],
 	"settings":
 	{
-		"tab_size": 4,
 		"java_import_path":
-	    [
-	        "/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/src.zip"
-	    ]
+		[
+			"/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/src.zip"
+		],
+		"tab_size": 4
 	}
 }

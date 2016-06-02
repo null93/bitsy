@@ -24,7 +24,7 @@ public class Handler {
 	public Handler ( Connection connection, String json ) {
 		// Save the address and port internally as well as the socket
 		this.connection = connection;
-		this.address = this.connection.getSocket ().getInetAddress ().toString ();
+		this.address = this.connection.getSocket ().getInetAddress ().getHostAddress ().toString ();
 		this.port = this.connection.getSocket ().getLocalPort ();
 		// Attempt to get instances of helper classes
 		try {

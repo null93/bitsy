@@ -4,6 +4,86 @@
 		"selected_items":
 		[
 			[
+				"pre",
+				"preferences"
+			],
+			[
+				"histor",
+				"history"
+			],
+			[
+				"ma",
+				"manager"
+			],
+			[
+				"get",
+				"getInstance"
+			],
+			[
+				"in",
+				"instance"
+			],
+			[
+				"Cl",
+				"ClipboardManager"
+			],
+			[
+				"Clip",
+				"ClipboardManager"
+			],
+			[
+				"Men",
+				"MenuTray"
+			],
+			[
+				"Menu",
+				"MenuTray"
+			],
+			[
+				"add",
+				"addActionListener"
+			],
+			[
+				"peer",
+				"peers"
+			],
+			[
+				"hand",
+				"handshake-request"
+			],
+			[
+				"res",
+				"requestObject"
+			],
+			[
+				"requst",
+				"requests"
+			],
+			[
+				"hi",
+				"history"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"IP",
+				"IP_V4"
+			],
+			[
+				"vali",
+				"validatePort"
+			],
+			[
+				"por",
+				"port"
+			],
+			[
+				"Icon",
+				"IconPath"
+			],
+			[
 				"address",
 				"addresses"
 			],
@@ -24,10 +104,6 @@
 				"Addresses"
 			],
 			[
-				"add",
-				"address"
-			],
-			[
 				"is_a",
 				"is_array"
 			],
@@ -38,10 +114,6 @@
 			[
 				"E",
 				"ExecuteScalar"
-			],
-			[
-				"Men",
-				"MenuShortcut"
 			],
 			[
 				"ou",
@@ -78,10 +150,6 @@
 			[
 				"Ehc",
 				"EchoClient"
-			],
-			[
-				"res",
-				"response"
 			],
 			[
 				"result",
@@ -124,16 +192,8 @@
 				"shortcut"
 			],
 			[
-				"get",
-				"getValue"
-			],
-			[
 				"CLI",
 				"ClipboardManager"
-			],
-			[
-				"Cl",
-				"Clipboard"
 			],
 			[
 				"clip",
@@ -156,10 +216,6 @@
 				"JSONObject"
 			],
 			[
-				"Clip",
-				"ClipboardManager"
-			],
-			[
 				"excep",
 				"exception"
 			],
@@ -170,10 +226,6 @@
 			[
 				"Action",
 				"ActionEvent"
-			],
-			[
-				"Menu",
-				"MenuItem"
 			],
 			[
 				"Tra",
@@ -462,58 +514,6 @@
 			[
 				"populate",
 				"populate_meminfo"
-			],
-			[
-				"procfs",
-				"procfs_i_func"
-			],
-			[
-				"sy",
-				"symbol"
-			],
-			[
-				"en",
-				"encrypt"
-			],
-			[
-				"file",
-				"filepath"
-			],
-			[
-				"KeyPair",
-				"keyPair"
-			],
-			[
-				"save",
-				"savePrivateKey"
-			],
-			[
-				"gen",
-				"generateKeys"
-			],
-			[
-				"decry",
-				"decrypted"
-			],
-			[
-				"encry",
-				"encryption"
-			],
-			[
-				"enc",
-				"encryped"
-			],
-			[
-				"encr",
-				"encryption"
-			],
-			[
-				"return",
-				"return	@return"
-			],
-			[
-				"laod",
-				"loadHTML"
 			]
 		]
 	},
@@ -543,17 +543,81 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 277.0,
-		"last_filter": "json",
+		"height": 368.0,
+		"last_filter": "trim",
 		"selected_items":
 		[
 			[
-				"json",
-				"Pretty JSON: Format (Pretty Print) JSON"
+				"trim",
+				"Trimmer: Trim trailing whitespace."
 			],
 			[
 				"inden",
 				"Indentation: Convert to Tabs"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ant",
+				"Build With: Ant"
+			],
+			[
+				"an",
+				"Build With: Ant"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"color",
+				"Set Syntax: C++ (Colorcode)"
+			],
+			[
+				"colo",
+				"Color Picker"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"githu",
+				"Github: Pull Requests"
+			],
+			[
+				"git",
+				"GitHub: Edit (master)"
+			],
+			[
+				"gith",
+				"GitHub: View"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
 			],
 			[
 				"lo",
@@ -562,10 +626,6 @@
 			[
 				"inedn",
 				"Indentation: Convert to Tabs"
-			],
-			[
-				"trim",
-				"Trimmer: Trim trailing whitespace."
 			],
 			[
 				"indein",
@@ -604,20 +664,12 @@
 				"Indentation: Convert to Tabs"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"ind",
 				"Indentation: Convert to Tabs"
 			],
 			[
 				"in",
 				"Indentation: Convert to Tabs"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"theme",
@@ -676,10 +728,6 @@
 				"Trimmer: Trim trailing whitespace."
 			],
 			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
 				"ass",
 				"ASCII Decorator: Font Selector"
 			],
@@ -732,10 +780,6 @@
 				"SublimeLinter: Choose Gutter Theme"
 			],
 			[
-				"install ",
-				"Package Control: Install Package"
-			],
-			[
 				"themr",
 				"Themr: List themes"
 			],
@@ -783,10 +827,49 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip"
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip"
 	],
 	"file_history":
 	[
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/UserInterface.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Packet.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Preferences.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/MenuTray.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/ClipboardManager.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Handler.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Server.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Connection.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Tuple.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/History.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/CloudClipException.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/CloudClip.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Graphic/TextField.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Graphic/Button.java",
+		"/Users/Raffi/.bash_profile",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/build.xml",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/CloudClip.java",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/packets.json",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/dist/CloudClip.app/Contents/Resources/en.lproj/Localizable.strings",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/settings.json",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/.gitignore",
+		"/Users/Raffi/Google Drive/My Documents/Github/jQuery.Minimal-Form/style.css",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/Users/Raffi/Google Drive/My Documents/Github/Ninja-Chat-Application/source/assets/templates/message.tpl",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/WordCount/WordCount.sublime-settings",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/Trimmer/Default (OSX).sublime-keymap",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/rsub/rsub.sublime-settings",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/DocBlockr/Base File.sublime-settings",
+		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/CC.sublime-project",
+		"/Users/Raffi/Google Drive/My Documents/Github/Ninja-Chat-Application/source/Server/Tuple.java",
+		"/Users/Raffi/Google Drive/School/UIC/CS342/Projects/PROJ05/Ninja-Chat-Application/source/Graphic/TextField.java",
+		"/Users/Raffi/Google Drive/School/UIC/CS342/Projects/PROJ05/Ninja-Chat-Application/source/Graphic/Button.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/.sublime-project",
 		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/Pretty JSON.sublime-settings",
 		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/Pretty JSON/Pretty JSON.sublime-settings",
@@ -805,18 +888,7 @@
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-eu91d2/Process.php",
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-l0xspn/Process.php",
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-pvanys/virtuozzo.php",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/History.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/CloudClip.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Preferences.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/build.xml",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/MenuTray.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Packet.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Connection.java",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Server.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/Makefile",
-		"/Users/Raffi/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/packets.json",
-		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/ClipboardManager.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/EchoClient.java",
 		"/Users/Raffi/Google Drive/My Documents/Github/CloudClip/src/io/raffi/CloudClip/EchoServer.java",
 		"/Users/Raffi/Desktop/Clipboard/src/io/raffi/CloudClip/EchoClient.java",
@@ -889,36 +961,11 @@
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-6zwatf/admin-status.tpl",
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-s2vsad/admin-status.tpl",
 		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-fwl1vu/javascript.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-i6v3y8/admin-commands.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-yzroho/javascript.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-0rxtbf/stylesheet.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-vffp53/WHMCS.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-i805wl/javascript.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-78pdvy/client-area.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-vd503i/admin-status.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-7g23ux/Template.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-lc3997/stylesheet.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-r82tsw/admin-commands.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-muefj2/Packet.php",
-		"/Users/Raffi/Desktop/TTFB/script.py",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-wlo2xf/admin-status.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-g28meu/Process.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-nvzqe1/virtuozzo.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-7l3m2l/virtuozzo.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-_yv02m/Information.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-bpktqq/admin-commands.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-9yto8g/Template.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-mglw2y/admin-errors.tpl",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-n7tcfw/admin-status.tpl",
-		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/style.css",
-		"/Users/Raffi/Google Drive/My Documents/Github/vz-portal/functions.js",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-wrv6ls/Packet.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-kkooti/Template.php",
-		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-ac882e/client-area.tpl"
+		"/var/folders/kn/zds0xmk941x2ffpjsy6cx8fr0000gn/T/rsub-i6v3y8/admin-commands.tpl"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 54.0
 	},
 	"find_in_files":
 	{
@@ -938,6 +985,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"equal ",
+			"create",
+			"try {",
+			"ClipboardManager.history",
+			"addSeparator ( )",
+			"sendAll",
+			"dialogResult",
 			"gen",
 			"password",
 			"$callback ( $result );",
@@ -1058,14 +1112,7 @@
 			"origin:",
 			"veid",
 			"state",
-			"error",
-			"echo",
-			"create",
-			"timeout",
-			"state",
-			"ns3:",
-			"message",
-			"ok/"
+			"error"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1122,7 +1169,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 327.0
+		"height": 390.0
 	},
 	"output.figlet_preview":
 	{
@@ -1140,7 +1187,7 @@
 	{
 		"height": 110.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Packages/Java/Ant.sublime-build",
 	"project": "CC.sublime-project",
 	"replace":
 	{
@@ -1186,7 +1233,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 233.0,
+	"side_bar_width": 151.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

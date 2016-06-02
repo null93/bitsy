@@ -75,8 +75,6 @@ public class ClipboardManager extends Thread {
 		this.packet = Packet.getInstance ();
 		// Set the current string in the clipboard
 		this.current = ClipboardManager.read ();
-		// Save the history and menu instances internally
-
 		// Start the thread
 		this.start ();
 	}
@@ -176,8 +174,11 @@ public class ClipboardManager extends Thread {
 				ArrayList <String> items = ClipboardManager.history.export ();
 				// Update it using the menu class
 				ClipboardManager.menu.update ( items );
-				// Sync across all devices
-				Server.sendAll ( this.packet.sendClip ( this.current ) );
+				// Check to see that we are not paused on syncing
+				if ( Preferences.Sync ) {
+					// Sync across all devices
+					Server.sendAll ( this.packet.sendClip ( this.current ) );
+				}
 			}
 			// Attempt to put the thread to sleep
 			try {
