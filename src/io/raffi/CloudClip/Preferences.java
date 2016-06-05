@@ -77,7 +77,7 @@ public class Preferences extends JFrame {
 				settings.createNewFile ();
 				this.contents = new JSONObject ();
 				this.contents.put ( "max_number_of_clips", Preferences.MaxNumberOfClips );
-				this.contents.put ( "ClipCutoff", Preferences.ClipCutoff );
+				this.contents.put ( "clip_cutoff", Preferences.ClipCutoff );
 				this.contents.put ( "peers", new JSONArray () );
 				this.contents.put ( "requests", new JSONArray () );
 				this.contents.put ( "last_clipboard", "" );

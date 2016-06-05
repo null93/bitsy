@@ -185,8 +185,8 @@ public class Handler {
 				break;
 			// This case handles when a new clipboard is synced between the peers
 			case "clipboard":
-				// First check to see if we want to sync this data
-				if ( Preferences.PropagateAllPeers ) {
+				// First check to see if we want to sync this data and check that they are a peer
+				if ( Preferences.PropagateAllPeers && this.preferences.isPeer ( hash ) ) {
 					// Save the clips from the packet to the file and the clipboard id
 					JSONArray clips = Packet.parseArray ( request.get ( "data" ).toString () );
 					String clipboardID = request.get ( "clipboard-id" ).toString ();
@@ -196,12 +196,12 @@ public class Handler {
 						this.preferences.setLastClipboard ( clipboardID );
 						// Merge the clipboard locally
 						this.history.merge ( clips );
-						// Send all peers the connected peers clipboard
-						Server.sendAllBut (
-							this.connection,
-							this.packet.syncClipboard ( clipboardID, clips )
-						);
 					}
+					// Send all peers the connected peers clipboard
+					Server.sendAllBut (
+						this.connection,
+						this.packet.syncClipboard ( clipboardID, clips )
+					);
 				}
 		}
 	}
