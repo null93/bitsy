@@ -44,7 +44,7 @@ public class Preferences extends JFrame {
 
 	protected static Boolean PropagateAllPeers = true;
 
-	protected static Boolean MergeClipboardsOnConnect = false;
+	protected static Boolean MergeClipboardsOnConnect = true;
 
 	private Preferences () {
 		// Initialize the JFrame

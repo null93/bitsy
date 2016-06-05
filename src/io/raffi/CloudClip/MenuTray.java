@@ -1,5 +1,6 @@
 package io.raffi.CloudClip;
 
+import java.lang.NullPointerException;
 import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -92,25 +93,30 @@ public class MenuTray implements ActionListener {
 		// Initialize and define the disconnect listener
 		this.disconnectListener = new ActionListener () {
 			public void actionPerformed ( ActionEvent event ) {
-    			// Extract the target menu item, and get the hash string
-				MenuItem target = ( MenuItem ) event.getSource ();
-				String hash = target.getActionCommand ();
-				// Get the preferences, menu tray, history, and packet instance
-				Preferences preferences = Preferences.getInstance ();
-				Packet packet = Packet.getInstance ();
-				MenuTray menu = MenuTray.getInstance ();
-				History history = History.getInstance ();
-				// Ask user if they really want to disconnect
-				if ( UserInterface.confirmDisconnectPeerConnection () ) {
-					// Remove the peer from the list
-					preferences.removePeer ( hash );
-					// Update the menu
-					menu.update ( history.export () );
-					// Send disconnect packet to peer
-					Server.sendTo ( hash, packet.disconnect () );
-					// Close the connection
-					Server.close ( hash );
+				// Try to do this, since the peer could have already disconnected
+				try {
+	    			// Extract the target menu item, and get the hash string
+					MenuItem target = ( MenuItem ) event.getSource ();
+					String hash = target.getActionCommand ();
+					// Get the preferences, menu tray, history, and packet instance
+					Preferences preferences = Preferences.getInstance ();
+					Packet packet = Packet.getInstance ();
+					MenuTray menu = MenuTray.getInstance ();
+					History history = History.getInstance ();
+					// Ask user if they really want to disconnect
+					if ( UserInterface.confirmDisconnectPeerConnection () ) {
+						// Remove the peer from the list
+						preferences.removePeer ( hash );
+						// Update the menu
+						menu.update ( history.export () );
+						// Send disconnect packet to peer
+						Server.sendTo ( hash, packet.disconnect () );
+						// Close the connection
+						Server.close ( hash );
+					}
 				}
+				// Catch null pointer exception, if the connection is already null
+				catch ( NullPointerException exception ) {}
 			}
 		};
 		// Get the icon resource path
