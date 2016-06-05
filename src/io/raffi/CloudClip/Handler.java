@@ -70,10 +70,26 @@ public class Handler {
 						// Update the address and port
 						this.preferences.updatePeer ( this.address, port, hash );
 					}
-					// Merge the clipboards
-					this.history.merge ( Packet.parseArray ( request.get ( "clips" ).toString () ) );
+					// Save the clips from the packet to the file
+					JSONArray peerClips = Packet.parseArray ( request.get ( "clips" ).toString () );
+					// Check to see if we want to merge on connect
+					if ( Preferences.MergeClipboardsOnConnect ) {
+						// Merge the clipboards
+						this.history.merge ( peerClips );
+					}
 					// Send the peer your information
-					this.connection.send ( this.packet.acceptHandshake () );
+					String clipboardID = request.get ( "clipboard-id" ).toString ();
+					this.connection.send ( this.packet.acceptHandshake ( clipboardID ) );
+					// Check preferences to see if we should propagate this clipboard to peers
+					if ( Preferences.PropagateAllPeers ) {
+						// Save the clipboard id to be the last saved one
+						this.preferences.setLastClipboard ( clipboardID );
+						// Send all peers the connected peers clipboard
+						Server.sendAllBut (
+							this.connection,
+							this.packet.syncClipboard ( clipboardID, peerClips )
+						);
+					}
 					// Update the menu tray
 					this.menu.update ( this.history.export () );
 				}
@@ -92,8 +108,24 @@ public class Handler {
 					// Add this user to the peers list
 					this.preferences.addPeer ( hash );
 				}
-				// Merge the clipboards
-				this.history.merge ( Packet.parseArray ( request.get ( "clips" ).toString () ) );
+				// Check to see if we want to merge on connect
+				if ( Preferences.MergeClipboardsOnConnect ) {
+					// Merge the clipboards
+					this.history.merge ( Packet.parseArray ( request.get ( "clips" ).toString () ) );
+					// Check preferences to see if we should propagate this clipboard to peers
+					if ( Preferences.PropagateAllPeers ) {
+						// Save the clips from the packet to the file and the clipboard id
+						JSONArray peerClips = Packet.parseArray ( request.get ( "clips" ).toString () );
+						String clipboardID = request.get ( "clipboard-id" ).toString ();
+						// Save the clipboard id to be the last saved one
+						this.preferences.setLastClipboard ( clipboardID );
+						// Send all peers the connected peers clipboard
+						Server.sendAllBut (
+							this.connection,
+							this.packet.syncClipboard ( clipboardID, peerClips )
+						);
+					}
+				}
 				// Update the menu to be able to disconnect
 				this.menu.update ( this.history.export () );
 				break;
@@ -151,6 +183,24 @@ public class Handler {
 					this.connection.close ();
 				}
 				break;
+			// This case handles when a new clipboard is synced between the peers
+			case "clipboard":
+				// First check to see if we want to sync this data
+				if ( Preferences.PropagateAllPeers ) {
+					// Save the clips from the packet to the file and the clipboard id
+					JSONArray clips = Packet.parseArray ( request.get ( "data" ).toString () );
+					String clipboardID = request.get ( "clipboard-id" ).toString ();
+					// Check to see if we synced this clipboard before
+					if ( !clipboardID.equals ( this.preferences.getLastClipboard () ) ) {
+						// Save the clipboard id to be the last saved one
+						this.preferences.setLastClipboard ( clipboardID );
+						// Send all peers the connected peers clipboard
+						Server.sendAllBut (
+							this.connection,
+							this.packet.syncClipboard ( clipboardID, clips )
+						);
+					}
+				}
 		}
 	}
 

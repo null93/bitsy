@@ -42,9 +42,9 @@ public class Preferences extends JFrame {
 
 	protected static Boolean Sync = true;
 
-	protected static Boolean PropagateAllPeers = false;
+	protected static Boolean PropagateAllPeers = true;
 
-	protected static Boolean MergeClipboardsOnConnect = true;
+	protected static Boolean MergeClipboardsOnConnect = false;
 
 	private Preferences () {
 		// Initialize the JFrame
@@ -80,6 +80,7 @@ public class Preferences extends JFrame {
 				this.contents.put ( "ClipCutoff", Preferences.ClipCutoff );
 				this.contents.put ( "peers", new JSONArray () );
 				this.contents.put ( "requests", new JSONArray () );
+				this.contents.put ( "last_clipboard", "" );
 				this.save ();
 			}
 			catch ( Exception exception ) {}
@@ -114,6 +115,15 @@ public class Preferences extends JFrame {
 		}
 		// Return an instance of the Preferences class
 		return Preferences.instance;
+	}
+
+	public void setLastClipboard ( String id ) {
+		this.contents.put ( "last_clipboard", id );
+		this.save ();
+	}
+
+	public String getLastClipboard () {
+		return this.contents.get ( "last_clipboard" ).toString ();
 	}
 
 	public void addRequest ( String address, int port, String hash ) {

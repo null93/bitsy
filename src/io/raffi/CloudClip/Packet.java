@@ -61,14 +61,16 @@ public class Packet {
 		json.put ( "type", "handshake-request" );
 		json.put ( "port", Preferences.Port );
 		json.put ( "clips", this.history.getClips () );
+		json.put ( "clipboard-id", Server.hash ( 32 ) );
 		return json.toString ();
 	}
 
-	public String acceptHandshake () {
+	public String acceptHandshake ( String clipboard ) {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "handshake-accept" );
 		json.put ( "port", Preferences.Port );
 		json.put ( "clips", this.history.getClips () );
+		json.put ( "clipboard-id", clipboard );
 		return json.toString ();
 	}
 
@@ -94,6 +96,14 @@ public class Packet {
 	public String disconnect () {
 		JSONObject json = new JSONObject ();
 		json.put ( "type", "disconnect" );
+		return json.toString ();
+	}
+
+	public String syncClipboard ( String clipboard, JSONArray clips ) {
+		JSONObject json = new JSONObject ();
+		json.put ( "type", "clipboard" );
+		json.put ( "id", clipboard );
+		json.put ( "data", clips );
 		return json.toString ();
 	}
 
