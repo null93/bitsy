@@ -194,6 +194,8 @@ public class Handler {
 					if ( !clipboardID.equals ( this.preferences.getLastClipboard () ) ) {
 						// Save the clipboard id to be the last saved one
 						this.preferences.setLastClipboard ( clipboardID );
+						// Merge the clipboard locally
+						this.history.merge ( clips );
 						// Send all peers the connected peers clipboard
 						Server.sendAllBut (
 							this.connection,
