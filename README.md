@@ -10,5 +10,6 @@ Disconnect option
 Blacklist option for rejection?
 settings.json and clips.json should be saved OS independent, not CD
 Change name? Clippy? Clipster?
+Password manager, key in menuitem with password hidden, choose if we want to sync passwords
 
 COMMENT!!!
