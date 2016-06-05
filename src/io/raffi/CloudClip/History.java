@@ -199,7 +199,7 @@ public class History {
 			// Check to see which timestamp to use
 			if ( timestamp == null ) {
 				// Make a new timestamp
-				timestamp = this.timestamp ().toString ();
+				timestamp = Integer.toString ( this.timestamp () );
 			}
 			// Append the data to the object
 			entry.put ( "timestamp", timestamp );
