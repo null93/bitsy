@@ -181,16 +181,14 @@ public class History {
 	}
 
 	public void set ( String clip, String timestamp ) {
-		// Firstly sort the data array
-		this.sort ();
 		// Trim to the max size of items
-		JSONArray clips = ( JSONArray ) this.data.get ("clips");
+		JSONArray clips = this.getClips ();
 		while ( clips.size () > Preferences.MaxNumberOfClips ) {
 			clips.remove ( clips.size () - 1 );
 		}
 		// Check if the value already exists in the set
-		int index = -1;
-		if ( ( index = this.find ( clip ) ) == -1 ) {
+		int index;
+		if ( ( index = this.find ( clip ) ) < 0 ) {
 			// Check to see if we need to make more room
 			if ( clips.size () >= Preferences.MaxNumberOfClips ) {
 				// Make room for the target
@@ -198,14 +196,20 @@ public class History {
 			}
 			// Initialize a new JSONObject based on the data
 			JSONObject entry = new JSONObject ();
+			// Check to see which timestamp to use
+			if ( timestamp == null ) {
+				// Make a new timestamp
+				timestamp = this.timestamp ().toString ();
+			}
 			// Append the data to the object
-			entry.put ( "timestamp", this.timestamp () );
+			entry.put ( "timestamp", timestamp );
 			entry.put ( "clip", clip );
 			// Append the entry to the clips array
 			clips.add ( entry );
 		}
 		else {
 			if ( timestamp == null ) {
+				System.out.println ( "Touching this clip: " + clip );
 				// Otherwise, we want to update the timestamp
 				this.touch ( clip );
 			}
@@ -218,8 +222,9 @@ public class History {
 					this.save ();
 				}
 			}
-
 		}
+		// Firstly sort the data array
+		this.sort ();
 		// Save the data
 		this.save ();
 	}
