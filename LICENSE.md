@@ -1,5 +1,5 @@
 # The MIT License (MIT)
-Copyright 2017 JetRails®
+Copyright 2017 Rafael Grigorian
 
 * * *
 
