@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" >
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.raffi.bitsy</groupId>
+	<groupId>io.raffi</groupId>
 	<artifactId>bitsy</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0</version>
@@ -36,7 +36,9 @@
 				<version>1.2.0</version>
 				<configuration>
 					<mainClass>io.raffi.bitsy.Application</mainClass>
-					<!-- <dictionaryFile>Info.plist</dictionaryFile> -->
+					<!-- <jrePath>/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk</jrePath> -->
+					<!-- <generateDiskImageFile>true</generateDiskImageFile> -->
+					<dictionaryFile>Info.plist</dictionaryFile>
 					<!-- <iconFile>CustomIncon.icns</iconFile> -->
 				</configuration>
 				<executions>

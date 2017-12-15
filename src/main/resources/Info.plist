@@ -1,40 +1,57 @@
-<?xml version="1.0" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" >
-<plist version="1.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 	<dict>
 		<key>LSUIElement</key>
 		<string>1</string>
-		<key>NSHighResolutionCapable</key>
-		<string>true</string>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>English</string>
 		<key>CFBundleExecutable</key>
 		<string>JavaAppLauncher</string>
 		<key>CFBundleIconFile</key>
-		<string>Icon.icns</string>
+		<string>GenericJavaApp.icns</string>
 		<key>CFBundleIdentifier</key>
-		<string>CloudClip</string>
+		<string>io.raffi.bitsy.Application</string>
 		<key>CFBundleDisplayName</key>
-		<string>CloudClip</string>
+		<string>bitsy</string>
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>CloudClip</string>
+		<string>bitsy</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
-		<string>1.0</string>
+		<string>1.0.0</string>
 		<key>CFBundleSignature</key>
 		<string>????</string>
 		<key>CFBundleVersion</key>
 		<string>1</string>
 		<key>NSHumanReadableCopyright</key>
 		<string></string>
+		<key>NSHighResolutionCapable</key>
+		<true/>
+		<key>NSSupportsAutomaticGraphicsSwitching</key>
+		<true/>
+		<key>JVMRuntime</key>
+		<string></string>
+		<key>JVMRuntimePath</key>
+		<string></string>
 		<key>JVMMainClassName</key>
-		<string>io.raffi.CloudClip.CloudClip</string>
+		<string>io.raffi.bitsy.Application</string>
+		<key>JVMClassPaths</key>
+		<array>
+			<string>io/raffi/bitsy/1.0.0/bitsy-1.0.0.jar</string>
+		</array>
+		<key>JVMVersion</key>
+		<string>1.6+</string>
 		<key>JVMOptions</key>
-		<array></array>
+		<array>
+			<string>-Dapple.laf.useScreenMenuBar=true</string>
+			<string>-Xdock:name=bitsy</string>
+		</array>
 		<key>JVMArguments</key>
-		<array></array>
+		<array/>
+		<key>LauncherWorkingDirectory</key>
+		<string>$APP_ROOT</string>
 	</dict>
 </plist>
