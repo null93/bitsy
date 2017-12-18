@@ -11,9 +11,9 @@ public class CheckItem extends CheckboxMenuItem implements ItemListener {
 		
 	private MenuObserver menuObserver;
 
-	private Resource resource;
+	protected Resource resource;
 
-	private String resourceName; 
+	protected String resourceName; 
 
 	public CheckItem ( String label, String resourceName, Resource resource ) {
 		super ( label );

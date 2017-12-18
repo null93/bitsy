@@ -25,7 +25,7 @@ public class ClipItem extends MenuItem implements ActionListener {
 		Resource resource = Resource.getInstance ();
 		Integer limit = resource.previewLength;
 		String preview = value.replaceAll ( "[ \t\r\n]+", " " ).trim ();
-	 	preview = preview.substring ( 0, Math.min ( 50 - 1, preview.length () - 1 ) );
+	 	preview = preview.substring ( 0, Math.min ( resource.previewLength - 1, preview.length () - 1 ) );
 	 	return preview + "\u2026";
 	}
 
