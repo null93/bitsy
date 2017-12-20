@@ -21,7 +21,7 @@ public class About extends ActionItem {
 
 	public void actionPerformed ( ActionEvent event ) {
         try {
-            Desktop.getDesktop ().browse ( new URI ("https://github.com/rdogg312/Bitsy") );
+            Desktop.getDesktop ().browse ( new URI ("https://github.com/rdogg312/bitsy") );
         }
         catch ( Exception e ) {}
 	}

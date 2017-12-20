@@ -20,7 +20,8 @@ public class Resource implements Serializable {
 	 */
 	public Integer maxClips = 100;
 	public Integer previewLength = 50;
-	public Boolean ignoreDuplicateClips = false;
+	public Boolean resortRepeated = false;
+	public Boolean selectedToTop = false;
 	public Boolean startOnBoot = false;
 	public Boolean clearOnExit = false;
 	public ArrayList <String> clips = new ArrayList <String> ();

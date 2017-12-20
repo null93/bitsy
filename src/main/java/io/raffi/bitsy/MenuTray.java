@@ -61,9 +61,10 @@ public class MenuTray extends PopupMenu implements MenuListener {
     private void createSettings () {
         this.add ( new PreviewLength ( this.resource ) );
         this.add ( new MaxClips ( this.resource ) );
-        this.add ( new IgnoreDuplicateClips ( this.resource ) );
+        this.add ( new ResortRepeated ( this.resource ) );
+        this.add ( new SelectedToTop ( this.resource ) );
         this.add ( new StartOnBoot ( this.resource ) );
-        this.add ( new ClearOnQuit ( this.resource ) );
+        this.add ( new ClearOnExit ( this.resource ) );
     }
 
     private void createActions () {

@@ -37,6 +37,12 @@ public class ClipItem extends MenuItem implements ActionListener {
 		StringSelection selection = new StringSelection ( this.value );
 		Clipboard clipboard = Toolkit.getDefaultToolkit ().getSystemClipboard ();
 		clipboard.setContents ( selection, null );
+		Resource resource = Resource.getInstance ();
+		if ( resource.selectedToTop ) {
+			while ( resource.clips.remove ( this.value ) ) {}
+			resource.clips.add ( 0, this.value );
+			resource.save ();
+		}
 		this.menuObserver.render ();
 	}
 
