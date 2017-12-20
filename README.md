@@ -1,9 +1,12 @@
 <p align="center" >
 	<img src="./design/logo.svg" />
 	</br>
-	<span><b style="font-size: 5em;" >Bitsy</b></span>
+	<span><b>Bitsy</b></span>
 	</br>
 	<span>Lightweight Clipboard Manager for MacOS</span>
+	</br></br>
+	<img src="https://img.shields.io/badge/License-MIT-red.svg?style=for-the-badge" />
+	<img src="https://img.shields.io/badge/Version-1.0.0-red.svg?style=for-the-badge" />
 </p>
 
 ##### Package JAR
