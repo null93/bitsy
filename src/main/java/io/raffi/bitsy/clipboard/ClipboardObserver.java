@@ -62,8 +62,10 @@ public class ClipboardObserver extends Thread {
 			String current = this.read ();
 
 			if ( this.cached == null || !this.cached.equals ( current ) ) {
-				this.cached = current;
-				this.dispatch ( current );
+				if ( current != null ) {
+					this.cached = current;
+					this.dispatch ( current );
+				}
 			}
 
 			try {

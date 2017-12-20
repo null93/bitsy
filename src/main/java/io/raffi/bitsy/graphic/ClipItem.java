@@ -25,8 +25,11 @@ public class ClipItem extends MenuItem implements ActionListener {
 		Resource resource = Resource.getInstance ();
 		Integer limit = resource.previewLength;
 		String preview = value.replaceAll ( "[ \t\r\n]+", " " ).trim ();
-	 	preview = preview.substring ( 0, Math.min ( resource.previewLength - 1, preview.length () - 1 ) );
-	 	return preview + "\u2026";
+		Boolean needsEllipsis = preview.length () > limit;
+		String postfix = needsEllipsis ? "\u2026" : "";
+		Integer postfixLength = needsEllipsis ? 1 : 0;
+		preview = preview.substring ( 0, Math.min ( resource.previewLength - postfixLength, preview.length () - postfixLength ) );
+		return preview + postfix;
 	}
 
 	public void actionPerformed ( ActionEvent event ) {

@@ -30,7 +30,6 @@ public class Application extends MenuTray implements ClipboardListener {
 
     public void clipCopyPreformed ( ClipboardEvent event ) {
         String value = event.getValue ();
-
         if ( this.resource.ignoreDuplicateClips && this.resource.clips.contains ( value ) ) {
             this.resource.clips.remove ( value );
             this.resource.clips.add ( 0, value );
@@ -41,7 +40,6 @@ public class Application extends MenuTray implements ClipboardListener {
             }
             this.resource.clips.add ( 0, value );
         }
-
         this.resource.save ();
         MenuObserver.getInstance ().render ();
     }
