@@ -11,7 +11,7 @@
 mvn package
 ```
 
-##### Package APP
+##### Bundle APP
 ```
 mvn package appbundle:bundle
 ```
