@@ -1,5 +1,10 @@
-## Bitsy
-Lightweight Clipboard Manager for MacOS
+<p align="center" >
+	<img src="./design/logo.svg" />
+	</br>
+	<span><b style="font-size: 5em;" >Bitsy</b></span>
+	</br>
+	<span>Lightweight Clipboard Manager for MacOS</span>
+</p>
 
 ##### Package JAR
 ```
