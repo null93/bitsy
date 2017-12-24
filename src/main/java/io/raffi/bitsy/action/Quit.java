@@ -7,6 +7,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
+/**
+ * 
+ * @version         1.0.0
+ * @package         io.raffi.bitsy.action
+ * @author          Rafael Grigorian [me@raffi.io]
+ * @license 		MIT License
+ * @copyright       2018 Rafael Grigorian — All Rights Reserved
+ */
 public class Quit extends ActionItem {
 	
 	private Resource resource;
