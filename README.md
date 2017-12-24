@@ -5,7 +5,7 @@
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-red.svg?style=for-the-badge)
 ![Animated Example](design/animated.gif)
 
-# Building & Running
+## Building & Running
 
 This project uses maven as it's build system. If you would like to build and run the application from source, then the following commands will prove useful. Please note that the application version is replaced with **x.x.x** for the sake of maintainability of this _README_ document.
 
