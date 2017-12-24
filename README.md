@@ -5,7 +5,7 @@
 <p align="center" >
 	<img src="https://img.shields.io/badge/License-MIT-red.svg?style=for-the-badge" />
 	<img src="https://img.shields.io/badge/Version-1.0.0-red.svg?style=for-the-badge" />
-	</br>
+	</br></br></br>
 	<img src="./design/animated.gif" />
 </p>
 
