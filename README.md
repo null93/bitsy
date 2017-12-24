@@ -4,7 +4,9 @@
 ![MIT License](https://img.shields.io/badge/License-MIT-red.svg?style=for-the-badge)
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-red.svg?style=for-the-badge)
 
-<img src="design/animated.gif" width="75%" alt="Animated Example" align="center" />
+</br></br>
+<p align="center" ><img src="design/animated.gif" width="75%" alt="Animated Example" /></p>
+</br></br>
 
 ## Building & Running
 
