@@ -13,6 +13,7 @@ import java.awt.CheckboxMenuItem;
 import java.awt.Menu;
 import java.awt.Toolkit;
 import java.awt.Image;
+import javax.swing.ImageIcon;
 import java.awt.AWTException;
 import java.awt.MenuShortcut;
 import java.awt.event.KeyEvent;
@@ -32,8 +33,10 @@ public class MenuTray extends PopupMenu implements MenuListener {
 		super ();
         this.resource = resource;
 		this.systemTray = SystemTray.getSystemTray ();
-		this.image = Toolkit.getDefaultToolkit ().getImage ("src/main/resources/image/logo.png");
-		this.trayIcon = new TrayIcon ( this.image );
+        this.image = new ImageIcon (
+            Thread.currentThread ().getContextClassLoader ().getResource ("image/logo.png")
+        ).getImage ();
+        this.trayIcon = new TrayIcon ( this.image );
         this.trayIcon.setImageAutoSize ( true );
         this.refreshMenu ();
         this.trayIcon.setPopupMenu ( this );
