@@ -7,14 +7,11 @@
 		<string>io.raffi.bitsy</string>
 		<key>ProgramArguments</key>
 		<array>
-			<string>java</string>
-			<string>-cp</string>
-			<string>/Users/raffi/Github/personal/bitsy/target/bitsy-1.0.0.jar</string>
-			<string>io.raffi.bitsy.Application</string>
+			<string>open</string>
+			<string>-a</string>
+			<string>/Applications/Bitsy.app</string>
 		</array>
 		<key>RunAtLoad</key>
-		<true/>
-		<key>KeepAlive</key>
 		<true/>
 	</dict>
 </plist>
