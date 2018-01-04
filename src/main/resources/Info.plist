@@ -13,11 +13,11 @@
 		<key>CFBundleIdentifier</key>
 		<string>io.raffi.bitsy.Application</string>
 		<key>CFBundleDisplayName</key>
-		<string>bitsy</string>
+		<string>Bitsy</string>
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>bitsy</string>
+		<string>Bitsy</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -47,11 +47,9 @@
 		<key>JVMOptions</key>
 		<array>
 			<string>-Dapple.laf.useScreenMenuBar=true</string>
-			<string>-Xdock:name=bitsy</string>
+			<string>-Xdock:name=Bitsy</string>
 		</array>
 		<key>JVMArguments</key>
 		<array/>
-		<key>LauncherWorkingDirectory</key>
-		<string>$APP_ROOT</string>
 	</dict>
 </plist>
