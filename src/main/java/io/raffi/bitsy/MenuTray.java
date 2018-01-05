@@ -13,6 +13,7 @@ import java.awt.CheckboxMenuItem;
 import java.awt.Menu;
 import java.awt.Toolkit;
 import java.awt.Image;
+import java.awt.MenuShortcut;
 import javax.swing.ImageIcon;
 import java.awt.AWTException;
 import java.awt.MenuShortcut;
@@ -23,7 +24,7 @@ import java.awt.Desktop;
 import java.net.URI;
 
 public class MenuTray extends PopupMenu implements MenuListener {
-    
+
 	private SystemTray systemTray;
 	private TrayIcon trayIcon;
 	private Image image;
@@ -41,7 +42,7 @@ public class MenuTray extends PopupMenu implements MenuListener {
         this.refreshMenu ();
         this.trayIcon.setPopupMenu ( this );
         MenuObserver.getInstance ().addMenuListener ( this );
-        try { 
+        try {
             this.systemTray.add ( this.trayIcon );
         }
         catch ( Exception e ) {}
@@ -55,8 +56,13 @@ public class MenuTray extends PopupMenu implements MenuListener {
             this.add ( noClips );
         }
         else {
+			int i = 0;
             for ( String clip : resource.clips ) {
-                this.add ( new ClipItem ( clip ) );
+				ClipItem clipItem = new ClipItem ( clip );
+				if ( i < 10 ) {
+					clipItem.setShortcut ( new MenuShortcut ( KeyEvent.VK_0 + i++, false ) );
+				}
+                this.add ( clipItem );
             }
         }
     }
@@ -85,4 +91,4 @@ public class MenuTray extends PopupMenu implements MenuListener {
         this.createActions ();
     }
 
-} 
+}
