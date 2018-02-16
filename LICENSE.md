@@ -1,5 +1,5 @@
 # The MIT License (MIT)
-Copyright 2017 Rafael Grigorian
+Copyright 2018 Rafael Grigorian
 
 * * *
 
