@@ -1,5 +1,5 @@
 # Bitsy
-> Lightweight clipboard manager for MacOS
+> Bitsy is a simple and lightweight clipboard manager for MacOS
 
 ![MIT License](https://img.shields.io/badge/License-MIT-red.svg?style=for-the-badge)
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-red.svg?style=for-the-badge)
