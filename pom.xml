@@ -74,9 +74,9 @@
 				<version>1.2.0</version>
 				<configuration>
 					<mainClass>io.raffi.bitsy.Application</mainClass>
-					<!-- <generateDiskImageFile>true</generateDiskImageFile> -->
+					<generateDiskImageFile>true</generateDiskImageFile>
 					<dictionaryFile>Info.plist</dictionaryFile>
-					<!-- <iconFile>CustomIncon.icns</iconFile> -->
+					<iconFile>image/logo.icns</iconFile>
 				</configuration>
 				<executions>
 					<execution>

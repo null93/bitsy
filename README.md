@@ -6,14 +6,14 @@
 ![Stability Stable](https://img.shields.io/badge/Stability-Stable-red.svg?style=for-the-badge)
 
 <p align="center" >
-	<img src="design/animated.gif" width="33%" />
-	<img src="design/animated.gif" width="33%" />
-	<img src="design/animated.gif" width="33%" />
+	<img src="assets/images/animation_1.gif" width="33%" />
+	<img src="assets/images/animation_2.gif" width="33%" />
+	<img src="assets/images/animation_3.gif" width="33%" />
 </p>
 
 ## Building & Running
 
-This project uses maven as it's build system. If you would like to build and run the application from source, then the following commands will prove useful. Please note that the application version is replaced with **x.x.x** for the sake of maintainability of this _README_ document.
+This project uses Maven as it's build system. If you would like to build and run the application from source, then the following commands will prove useful. Please note that the application version is replaced with **x.x.x** for the sake of maintainability of this _README_ document.
 
 ##### Package JAR
 This will produce a _jar_ file in the _target_ directory.
