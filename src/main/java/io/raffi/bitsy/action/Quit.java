@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 /**
  * 
- * @version         1.0.0
+ * @version         1.0.1
  * @package         io.raffi.bitsy.action
  * @author          Rafael Grigorian [me@raffi.io]
  * @license 		MIT License

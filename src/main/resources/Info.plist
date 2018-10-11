@@ -40,7 +40,7 @@
 		<string>io.raffi.bitsy.Application</string>
 		<key>JVMClassPaths</key>
 		<array>
-			<string>io/raffi/bitsy/1.0.0/bitsy-1.0.0.jar</string>
+			<string>io/raffi/bitsy/1.0.1/bitsy-1.0.1.jar</string>
 		</array>
 		<key>JVMVersion</key>
 		<string>1.6+</string>

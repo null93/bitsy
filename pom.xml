@@ -6,7 +6,7 @@
 	<groupId>io.raffi</groupId>
 	<artifactId>bitsy</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>Bitsy</name>
 	<url>http://maven.apache.org</url>
 	<properties>
